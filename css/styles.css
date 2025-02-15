@@ -1,3 +1,4 @@
+/* General Styling */
 body, html {
     margin: 0;
     padding: 0;
@@ -6,7 +7,7 @@ body, html {
     scroll-behavior: smooth;
 }
 
-/* Full Screen Header */
+/* Full-Screen Header (Hero Section) */
 .full-screen {
     position: relative;
     width: 100%;
@@ -18,48 +19,6 @@ body, html {
     text-align: center;
 }
 
-/* Founder Section - Centered but Aligned to Left */
-.founder-section {
-    position: absolute;
-    left: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-    z-index: 10;
-}
-
-/* Founder Image with Glowing Animated Border */
-.founder-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid transparent;
-    animation: borderGlow 2s infinite alternate;
-}
-
-.founder-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-/* Founder Title */
-.founder-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    margin-top: 10px;
-}
-
-/* Animated Border Effect */
-@keyframes borderGlow {
-    0% { border-color: #ff5733; }
-    50% { border-color: #33ff57; }
-    100% { border-color: #5733ff; }
-}
-
 /* Banner Text */
 .banner-text {
     color: white;
@@ -68,21 +27,23 @@ body, html {
 }
 
 .banner-text h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: bold;
 }
 
 .banner-text h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: lighter;
 }
 
 /* Navigation Bar */
 #nav-wrap {
-    position: absolute;
-    top: 20px;
+    position: fixed;
+    top: 0;
     width: 100%;
+    padding: 10px 0;
     text-align: center;
+    z-index: 100;
 }
 
 .nav {
@@ -92,6 +53,7 @@ body, html {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    background: transparent;
 }
 
 .nav li {
@@ -104,6 +66,11 @@ body, html {
     color: white;
     font-weight: bold;
     padding: 10px;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #ff5733;
 }
 
 /* Section Styling */
@@ -117,6 +84,7 @@ body, html {
     box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
 }
 
+/* Features Section */
 .features-container {
     display: flex;
     flex-wrap: wrap;
@@ -150,19 +118,20 @@ body, html {
     height: auto;
 }
 
-/* Download Button */
-.download-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
+/* Contact Section */
+#contact {
+    text-align: center;
+    font-size: 1.2rem;
 }
 
-.download-btn:hover {
-    background-color: #0056b3;
+#contact a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    text-decoration: underline;
 }
 
 /* Footer */
@@ -177,31 +146,18 @@ footer {
 /* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
     .banner-text h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     .banner-text h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
+
     .nav {
         flex-direction: column;
         gap: 10px;
     }
+
     .diagram-container img {
         max-width: 90%;
-    }
-
-    /* Adjust Founder Section for Smaller Screens */
-    .founder-section {
-        position: absolute;
-        left: 50%;
-        top: 60%;
-        transform: translate(-50%, -50%);
-    }
-    .founder-image {
-        width: 120px;
-        height: 120px;
-    }
-    .founder-title {
-        font-size: 1rem;
     }
 }
