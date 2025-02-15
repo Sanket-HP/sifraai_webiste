@@ -5,6 +5,7 @@ body, html {
     font-family: 'Times New Roman', serif;
     background-color: #f4f4f4;
     scroll-behavior: smooth;
+    font-size: 20px; /* Increased base font size */
 }
 
 /* Full-Screen Header (Hero Section) */
@@ -27,12 +28,12 @@ body, html {
 }
 
 .banner-text h1 {
-    font-size: 3rem;
+    font-size: 3.5rem; /* Increased size */
     font-weight: bold;
 }
 
 .banner-text h3 {
-    font-size: 1.5rem;
+    font-size: 2rem; /* Increased size */
     font-weight: lighter;
 }
 
@@ -41,7 +42,7 @@ body, html {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 0;
+    padding: 15px 0; /* Slightly increased padding */
     text-align: center;
     z-index: 100;
 }
@@ -51,7 +52,7 @@ body, html {
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
     flex-wrap: wrap;
     background: transparent;
 }
@@ -62,10 +63,10 @@ body, html {
 
 .nav a {
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Increased size */
     color: white;
     font-weight: bold;
-    padding: 10px;
+    padding: 12px;
     transition: color 0.3s;
 }
 
@@ -75,13 +76,13 @@ body, html {
 
 /* Section Styling */
 .section-neuromorphic {
-    margin: 40px auto;
+    margin: 50px auto;
     width: 90%;
     max-width: 1200px;
-    padding: 30px;
+    padding: 40px; /* Increased padding */
     background: #e0e0e0;
     border-radius: 20px;
-    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
 }
 
 /* Features Section */
@@ -93,15 +94,16 @@ body, html {
 
 .feature-box {
     background: white;
-    padding: 20px;
-    margin: 10px;
+    padding: 25px;
+    margin: 15px;
     border-radius: 15px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    font-size: 1.3rem; /* Increased font size */
 }
 
 .feature-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 }
 
 /* Diagrams Section */
@@ -110,24 +112,25 @@ body, html {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
 }
 
 .diagram-container img {
-    max-width: 30%;
+    max-width: 35%;
     height: auto;
 }
 
 /* Contact Section */
 #contact {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem; /* Increased font size */
 }
 
 #contact a {
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.5rem; /* Increased font size */
 }
 
 #contact a:hover {
@@ -137,27 +140,36 @@ body, html {
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     background: #333;
     color: white;
-    margin-top: 40px;
+    margin-top: 50px;
+    font-size: 1.3rem; /* Increased font size */
 }
 
 /* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
+    body {
+        font-size: 18px; /* Slightly smaller for mobile */
+    }
+
     .banner-text h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     .banner-text h3 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
     .nav {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
     }
 
     .diagram-container img {
         max-width: 90%;
+    }
+
+    .feature-box {
+        font-size: 1.2rem; /* Adjusted font size for mobile */
     }
 }
