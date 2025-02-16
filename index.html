@@ -10,24 +10,50 @@
 <body>
 
    <!-- Navigation Bar -->
-   <ul id="nav" class="nav">
-      <li class="current"><a href="#about">About</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#diagrams">Diagrams</a></li>
-      <li><a href="#research">Research Paper</a></li>
-      <li><a href="#contact">Contact</a></li>
-  </ul>
+   <nav id="nav-wrap">
+      <div class="menu-toggle" id="menu-toggle">
+         ☰
+      </div>
+      <ul id="nav" class="nav">
+         <li><a href="#founder">Founder</a></li>
+         <li class="current"><a href="#about">About</a></li>
+         <li><a href="#features">Features</a></li>
+         <li><a href="#diagrams">Diagrams</a></li>
+         <li><a href="#research">Research Paper</a></li>
+         <li><a href="#contact">Contact</a></li>
+      </ul>
+   </nav>
 
-   <!-- Hero Section -->
+   <!-- Hero Section with Self-Drawing Animation -->
    <header id="home" class="full-screen">
       <div class="banner-text">
-         <h1 class="responsive-headline">Sifra AI</h1>
-         <h3>An Autonomous AI Data Scientist simplifying data analysis.</h3>
+         <svg viewBox="0 0 500 100">
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="50" class="self-draw">
+               Sifra AI
+            </text>
+         </svg>
+         <h3 class="fade-in">An Autonomous AI Data Scientist simplifying data analysis.</h3>
       </div>
    </header>
 
+   <!-- Founder Section -->
+   <section id="founder" class="section fade-in">
+      <h2>Meet the Founder</h2>
+      <div class="founder-container">
+         <img src="images/founder.jpg" alt="Founder Image" class="founder-img">
+         <div class="founder-info">
+            <h3>Sanket Sarjerao Patil</h3>
+            <p>Founder & CEO, Sifra AI</p>
+            <p>
+               Passionate about AI and innovation, Sanket envisions Sifra AI as the future of autonomous data science.
+               With expertise in AI and Flutter, he aims to revolutionize the way we analyze and process data.
+            </p>
+         </div>
+      </div>
+   </section>
+
    <!-- About Section -->
-   <section id="about" class="section">
+   <section id="about" class="section fade-in">
       <h2>About Sifra AI</h2>
       <p>
          Sifra AI is an AI-powered autonomous data scientist designed to simplify data analysis through NLP-driven automation. 
@@ -37,7 +63,7 @@
    </section>
 
    <!-- Features Section -->
-   <section id="features" class="section">
+   <section id="features" class="section fade-in">
       <h2>Key Features</h2>
       <div class="features-container">
          <div class="feature-box">🤖 AI-Powered Code Generation</div>
@@ -52,8 +78,8 @@
    </section>
 
    <!-- Diagrams Section -->
-   <section id="diagrams" class="section">
-      <h2>Daigrams</h2>
+   <section id="diagrams" class="section fade-in">
+      <h2>Diagrams</h2>
       <div class="diagram-container">
          <img src="images/sifra_architecture.png" alt="System Architecture">
          <img src="images/sifra_workflow.png" alt="Workflow Diagram">
@@ -62,7 +88,7 @@
    </section>
 
    <!-- Research Paper Section -->
-   <section id="research" class="section">
+   <section id="research" class="section fade-in">
       <h2>Research Paper</h2>
       <p>
          Cite as: Sanket Sarjerao Patil. Sifra AI: An Autonomous Data Scientist. DOI: 
@@ -72,7 +98,7 @@
    </section>
 
    <!-- Contact Section -->
-   <section id="contact" class="section">
+   <section id="contact" class="section fade-in">
       <h2>Contact Us</h2>
       <p>Email: <a href="mailto:sanketmorepatil94@gmail.com">sanketmorepatil94@gmail.com</a></p>
    </section>
