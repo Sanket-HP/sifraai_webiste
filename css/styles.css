@@ -3,12 +3,13 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', serif;
-    background-color: #f4f4f4;
+    background-color: #222;
+    color: #fff;
     scroll-behavior: smooth;
-    font-size: 20px; /* Increased base font size */
+    font-size: 20px;
 }
 
-/* Full-Screen Header (Hero Section) */
+/* Full-Screen Header */
 .full-screen {
     position: relative;
     width: 100%;
@@ -20,29 +21,10 @@ body, html {
     text-align: center;
 }
 
-/* Banner Text */
-.banner-text {
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-.banner-text h1 {
-    font-size: 3.5rem; /* Increased size */
-    font-weight: bold;
-}
-
-.banner-text h3 {
-    font-size: 2rem; /* Increased size */
-    font-weight: lighter;
-}
-
 /* Navigation Bar */
 #nav-wrap {
-    position: fixed;
-    top: 0;
+    position: absolute;
     width: 100%;
-    padding: 15px 0; /* Slightly increased padding */
     text-align: center;
     z-index: 100;
 }
@@ -54,7 +36,6 @@ body, html {
     justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
-    background: transparent;
 }
 
 .nav li {
@@ -63,7 +44,7 @@ body, html {
 
 .nav a {
     text-decoration: none;
-    font-size: 1.5rem; /* Increased size */
+    font-size: 1.5rem;
     color: white;
     font-weight: bold;
     padding: 12px;
@@ -75,14 +56,13 @@ body, html {
 }
 
 /* Section Styling */
-.section-neuromorphic {
-    margin: 50px auto;
-    width: 90%;
-    max-width: 1200px;
-    padding: 40px; /* Increased padding */
-    background: #e0e0e0;
-    border-radius: 20px;
-    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+.section {
+    position: relative;
+    padding: 80px 10%;
+    text-align: center;
+    color: black;
+    background-color: #a0d2eb;
+    overflow: hidden;
 }
 
 /* Features Section */
@@ -90,20 +70,17 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 20px;
 }
 
 .feature-box {
     background: white;
-    padding: 25px;
-    margin: 15px;
-    border-radius: 15px;
-    box-shadow: 6px 6px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    font-size: 1.3rem; /* Increased font size */
-}
-
-.feature-box:hover {
-    transform: translateY(-6px);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+    font-size: 1.3rem;
+    color: black;
 }
 
 /* Diagrams Section */
@@ -116,21 +93,24 @@ body, html {
 }
 
 .diagram-container img {
-    max-width: 35%;
+    max-width: 30%;
     height: auto;
 }
 
 /* Contact Section */
 #contact {
     text-align: center;
-    font-size: 1.4rem; /* Increased font size */
+    font-size: 1.4rem;
+    background-color: #444;
+    color: white;
+    padding: 50px 0;
 }
 
 #contact a {
-    color: #007bff;
+    color: #ff5733;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.5rem; /* Increased font size */
+    font-size: 1.5rem;
 }
 
 #contact a:hover {
@@ -140,17 +120,17 @@ body, html {
 /* Footer */
 footer {
     text-align: center;
-    padding: 25px;
-    background: #333;
+    padding: 20px;
+    background: #111;
     color: white;
-    margin-top: 50px;
-    font-size: 1.3rem; /* Increased font size */
+    margin-top: 40px;
+    font-size: 1.3rem;
 }
 
 /* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
     body {
-        font-size: 18px; /* Slightly smaller for mobile */
+        font-size: 18px;
     }
 
     .banner-text h1 {
@@ -170,6 +150,6 @@ footer {
     }
 
     .feature-box {
-        font-size: 1.2rem; /* Adjusted font size for mobile */
+        font-size: 1.2rem;
     }
 }
