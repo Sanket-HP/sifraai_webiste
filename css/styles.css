@@ -5,7 +5,7 @@ body, html {
     background: url('../images/header-background.jpg') no-repeat center center/cover;
     color: #fff;
     scroll-behavior: smooth;
-    font-size: 18px;
+    font-size: 22px;
     height: 100%;
 }
 
@@ -34,7 +34,7 @@ body, html {
 
 .nav a {
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Increased font size */
     color: white;
     transition: color 0.3s ease-in-out;
 }
@@ -60,17 +60,17 @@ body, html {
 .banner-text {
     color: white;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    font-size: 25px;
+    font-size: 30px; /* Increased font size */
     font-family: 'Times New Roman', serif;
 }
 
 .banner-text h1 {
-    font-size: 4rem;
+    font-size: 4.5rem; /* Increased font size */
     margin: 0;
 }
 
 .banner-text h3 {
-    font-size: 1.8rem;
+    font-size: 2rem; /* Increased font size */
     margin-top: 10px;
 }
 
@@ -91,11 +91,11 @@ body, html {
 
 .feature-box {
     background: white;
-    padding: 20px;
-    width: 250px;
+    padding: 25px; /* Slightly increased padding */
+    width: 270px; /* Increased width */
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Increased font size */
     color: black;
 }
 
@@ -113,19 +113,19 @@ body, html {
 
 .research-paper {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.6rem; /* Increased font size */
 }
 
 #contact {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.6rem; /* Increased font size */
 }
 
 #contact a {
     color: #ff5733;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.7rem; /* Increased font size */
 }
 
 #contact a:hover {
@@ -138,20 +138,21 @@ footer {
     background: #111;
     color: white;
     margin-top: 40px;
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Increased font size */
 }
 
+/* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
     body {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .banner-text h1 {
-        font-size: 2.5rem;
+        font-size: 3rem; /* Adjusted for smaller screens */
     }
     
     .banner-text h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .diagram-container img {
@@ -159,7 +160,7 @@ footer {
     }
 
     .feature-box {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         width: 90%;
     }
 }
