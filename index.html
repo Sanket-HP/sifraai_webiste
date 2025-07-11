@@ -1,114 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="utf-8">
-   <title>Sifra AI - Autonomous Data Scientist</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-   <link rel="stylesheet" href="css/styles.css">
-   <link rel="shortcut icon" href="images/logo.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sifra AI – Autonomous Data Scientist</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
 
-   <!-- Navigation Bar -->
-   <nav id="nav-wrap">
-      <div class="menu-toggle" id="menu-toggle">
-         ☰
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="images/logo.jpg" alt="Sifra AI Logo" class="logo" />
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about-sifra">About</a>
+      <a href="#app-preview">App</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="images/hero.png" alt="Sifra AI Hero" />
+    <h1>Hey there, nice to meet you.</h1>
+    <h3>World’s First AI Autonomous Data Scientist Tool</h3>
+    <p>I'm your personal AI assistant — designed to boost your productivity and intelligence.</p>
+    <a href="#about-sifra" class="cta small">Learn More</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about-sifra" class="full-screen section">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="images/founder.jpg" alt="Founder Sanket Sarjerao Patil" />
       </div>
-      <ul id="nav" class="nav">
-         <li><a href="#founder">Founder</a></li>
-         <li class="current"><a href="#about">About</a></li>
-         <li><a href="#features">Features</a></li>
-         <li><a href="#diagrams">Diagrams</a></li>
-         <li><a href="#research">Research Paper</a></li>
-         <li><a href="#contact">Contact</a></li>
-      </ul>
-   </nav>
-
-   <!-- Hero Section with Self-Drawing Animation -->
-   <header id="home" class="full-screen">
-      <div class="banner-text">
-         <svg viewBox="0 0 500 100">
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="50" class="self-draw">
-               Sifra AI
-            </text>
-         </svg>
-         <h3 class="fade-in">An Autonomous AI Data Scientist simplifying data analysis.</h3>
+      <div class="about-content">
+        <h2>About Sifra AI</h2>
+        <p>
+          Sifra AI is the world's first autonomous data scientist tool, developed by Indian student Sanket Sarjerao Patil. 
+          He is also the author of the book <strong>"The 1% Theory: Building Success from Belief"</strong>, inspired by Virat Kohli's philosophy.
+          Sanket is pursuing a B.Tech in Computer Science and Engineering with a specialization in Data Science. 
+          His research paper on Sifra AI is published on TechRxiv and can be read at: 
+          <a href="https://www.techrxiv.org/users/889486/articles/1266904-sifra-ai-an-autonomous-data-scientist-for-generating-code-and-outputs-across-python-r-and-sql" target="_blank">TechRxiv.org</a>.
+        </p>
       </div>
-   </header>
+    </div>
+  </section>
 
-   <!-- Founder Section -->
-   <section id="founder" class="section fade-in">
-      <h2>Meet the Founder</h2>
-      <div class="founder-container">
-         <img src="images/founder.jpg" alt="Founder Image" class="founder-img">
-         <div class="founder-info">
-            <h3>Sanket Sarjerao Patil</h3>
-            <p>Founder & CEO, Sifra AI</p>
-            <p>
-               Passionate about AI and innovation, Sanket envisions Sifra AI as the future of autonomous data science.
-               With expertise in AI and Flutter, he aims to revolutionize the way we analyze and process data.
-            </p>
-         </div>
+  <!-- App Preview Section -->
+  <section id="app-preview" class="full-screen section">
+    <div class="app-grid">
+      <div class="app-preview">
+        <img src="images/sifra_architecture.png" alt="Sifra App Preview" />
       </div>
-   </section>
-
-   <!-- About Section -->
-   <section id="about" class="section fade-in">
-      <h2>About Sifra AI</h2>
-      <p>
-         Sifra AI is an AI-powered autonomous data scientist designed to simplify data analysis through NLP-driven automation. 
-         It converts natural language queries into executable code, supports Python, R, and SQL, and provides cloud-based storage 
-         for efficient collaboration.
-      </p>
-   </section>
-
-   <!-- Features Section -->
-   <section id="features" class="section fade-in">
-      <h2>Key Features</h2>
-      <div class="features-container">
-         <div class="feature-box">🤖 AI-Powered Code Generation</div>
-         <div class="feature-box">🐍 Supports Python, R, and SQL</div>
-         <div class="feature-box">⚡ Real-time Code Execution</div>
-         <div class="feature-box">☁️ Cloud-based Storage</div>
-         <div class="feature-box">📊 Automated Data Visualization</div>
-         <div class="feature-box">📈 Predictive Analytics</div>
-         <div class="feature-box">🔍 NLP-Driven Query Processing</div>
-         <div class="feature-box">🔐 Secure and Scalable Infrastructure</div>
+      <div class="app-description">
+        <h2>Mobile App – MVP Stage</h2>
+        <p>
+          Currently in the MVP stage, available only as a mobile app (not yet published).  
+          It uses a custom GPT model hosted on Microsoft Azure and is supported by the Microsoft for Startups Founder Hub.
+          The frontend is built using Flutter and Android Studio.
+        </p>
       </div>
-   </section>
+    </div>
+  </section>
 
-   <!-- Diagrams Section -->
-   <section id="diagrams" class="section fade-in">
-      <h2>Diagrams</h2>
-      <div class="diagram-container">
-         <img src="images/sifra_architecture.png" alt="System Architecture">
-         <img src="images/sifra_workflow.png" alt="Workflow Diagram">
-         <img src="images/sifra_user_journey.png" alt="User Journey Diagram">
-      </div>
-   </section>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section full-screen section">
+    <h2>Contact the Founder</h2>
+    <form onsubmit="return sendMessage(event)">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email Address" required />
+      <input type="text" name="subject" placeholder="Subject" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="cta small">Send</button>
+    </form>
+    <p id="confirmation-message" style="color: lightgreen; text-align: center; margin-top: 10px;"></p>
+  </section>
 
-   <!-- Research Paper Section -->
-   <section id="research" class="section fade-in">
-      <h2>Research Paper</h2>
-      <p>
-         Cite as: Sanket Sarjerao Patil. Sifra AI: An Autonomous Data Scientist. DOI: 
-         <a href="https://doi.org/10.36227/techrxiv.173933224.40197914/v1" target="_blank">
-         10.36227/techrxiv.173933224.40197914/v1</a>
-      </p>
-   </section>
-
-   <!-- Contact Section -->
-   <section id="contact" class="section fade-in">
-      <h2>Contact Us</h2>
-      <p>Email: <a href="mailto:sanketmorepatil94@gmail.com">sanketmorepatil94@gmail.com</a></p>
-   </section>
-
-   <!-- Footer -->
-   <footer>
-      <p>Sifra AI - AI Autonomous Data Scientist &copy; 2025</p>
-   </footer>
-
-   <script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <img src="https://1000logos.net/wp-content/uploads/2021/04/Microsoft-logo.png" alt="Microsoft Logo" />
+    <p>Supported by Microsoft for Startups Founder Hub</p>
+    <small>© 2025 Sanket Sarjerao Patil – All Rights Reserved</small>
+  </footer>
 
 </body>
 </html>
