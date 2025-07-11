@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sifra AI - Landing Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="logo.png" alt="Sifra AI" class="logo">
+    <nav class="nav-links" id="navLinks">
+      <a href="#about-sifra">About</a>
+      <a href="#features">App</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- Hero Section -->
+ <section class="hero full-screen">
+  <h1>Hey there, nice to meet you.</h1>
+  <h3>World’s First AI Autonomous Data Scientist Tool</h3>
+  <p>I'm your personal AI assistant — designed to boost your productivity and intelligence.</p>
+  <a href="#about-sifra" class="cta small">Learn More</a>
+</section>
+
+
+
+  <!-- About Section -->
+  <section class="section full-screen about-grid" id="about-sifra">
+    <div class="about-image">
+      <img src="founder.jpg" alt="Founder Image">
+    </div>
+    <div class="about-content">
+      <h2>About Sifra AI</h2>
+      <p><strong>Sifra AI</strong> is the world’s first autonomous data scientist, developed by Indian student <strong>Sanket Sarjerao Patil</strong>.</p>
+      <p>He is a B.Tech Computer Science & Engineering student specializing in Data Science and author of the book <em><strong>"The 1% Theory: Building Success from Belief"</strong></em>, inspired by Virat Kohli.</p>
+      <p>Research Paper: <a href="https://www.techrxiv.org/users/889486/articles/1266904-sifra-ai-an-autonomous-data-scientist-for-generating-code-and-outputs-across-python-r-and-sql" target="_blank">Read on TechRxiv ↗</a></p>
+    </div>
+  </section>
+
+  <!-- App Section -->
+  <section class="section full-screen app-grid" id="features">
+    <div class="app-preview">
+      <img src="mobile-mockup.jpg" alt="Mobile App Preview">
+    </div>
+    <div class="app-description">
+      <h2>Your AI, now in your pocket</h2>
+      <p>Currently in the <strong>MVP stage</strong>, available only as a mobile app (not yet published).</p>
+      <p>It uses a custom GPT model on <strong>Microsoft Azure</strong>, supported by the <strong>Microsoft for Startups Founder Hub</strong>.</p>
+      <p>Built with <strong>Flutter</strong> and <strong>Android Studio</strong>.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section full-screen contact-section" id="contact">
+    <h2>Contact the Founder</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email Address" required />
+      <input type="text" id="subject" placeholder="Subject" required />
+      <textarea id="message" rows="6" placeholder="Your Message..." required></textarea>
+      <button type="submit" class="cta small">Send</button>
+    </form>
+    <p id="statusMsg"></p>
+  </section>
+
+  <!-- Footer -->
+ <footer class="footer">
+  <p>Supported by Microsoft for Startups Founder Hub</p>
+  <img src="https://cdn.iconscout.com/icon/free/png-256/free-microsoft-3215376-2673785.png" alt="Microsoft Logo" />
+  <small>© 2025 Sifra AI. All rights reserved.</small>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
