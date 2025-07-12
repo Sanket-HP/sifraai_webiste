@@ -17,20 +17,32 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+
   <main class="contact-main">
     <h1>Contact Us</h1>
-    <form class="contact-form" onsubmit="submitForm(event)">
-      <input type="text" placeholder="Name" required />
-      <input type="email" placeholder="Contact Info (Email)" required />
-      <input type="text" placeholder="Subject" required />
-      <textarea placeholder="Message" rows="5" required></textarea>
+    <form 
+      id="contactForm"
+      class="contact-form"
+      action="https://script.google.com/macros/s/AKfycbwpWM458EADciLQl3wE9E9GqxKO9RDHXQpDhyZDfbmk29NKrsjEIHT3x9XcIJVbUtRqPg/exec" 
+      method="POST"
+      onsubmit="submitForm(event)"
+    >
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Contact Info (Email)" required />
+      <input type="text" name="subject" placeholder="Subject" required />
+      <textarea name="message" placeholder="Message" rows="5" required></textarea>
       <button type="submit">Send</button>
     </form>
+    <p id="responseMessage" style="color: lightgreen; margin-top: 1rem; display: none;">
+      ✅ Message sent to SIFRA AI founder!
+    </p>
   </main>
+
   <footer class="clean-footer">
     <p>&copy; 2025 SIFRA AI. All rights reserved.</p>
     <p>Supported by Microsoft for Startups Founders Hub</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
