@@ -2,32 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sifra AI - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sifra AI - One Page</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="index-page">
+<body>
   <header>
-    <img src="logo.png" alt="Sifra Logo" class="logo" style="height: 40px;" />
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav id="menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="logo">
+      <img src="logo.png" alt="Sifra AI Logo" />
+    </div>
   </header>
 
-  <section class="center-content">
-    <h1>Welcome to Sifra AI</h1>
-    <p>The world's first AI autonomous data scientist tool.</p>
-    <button onclick="window.location.href='about.html'">Learn More</button>
-  </section>
+  <main>
+    <!-- Index Section -->
+    <section id="home" class="section">
+      <h1>Welcome to Sifra AI</h1>
+      <p>The World's First Autonomous Data Scientist Tool.</p>
+      <button>Explore More</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2>About Sifra AI</h2>
+      <div class="card-container">
+        <div class="card" style="width: 200px;">📄 Research Paper Published</div>
+        <div class="card" style="width: 300px;">🚀 MVP Supported by Microsoft Startup Founder Hub</div>
+        <div class="card" style="width: 250px;">🛠 Technologies Used: Azure, Android Studio, Flutter</div>
+        <div class="card" style="width: 260px;">🧠 Custom GPT Model: Sifra41-2 Crate</div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2>Contact Us</h2>
+      <form class="contact-form" name="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbwgYYgBWlHDKiGIQ3KZkeHL5k1DOgivuZwK34-rZmluhb2Fw5NApcOOixQ5lKVQodGk4w/exec">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
 
   <footer class="clean-footer">
-    <p>Supported by Microsoft for Startups – Founder Hub</p>
     <p>&copy; 2025 Sifra AI. All rights reserved.</p>
+    <p>Supported by Microsoft Startup Founder Hub</p>
   </footer>
-
- <script src="script.js"></script>
 </body>
 </html>
