@@ -7,25 +7,64 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="ai-bg index-page">
-  <header>
+  <header class="navbar">
     <div class="logo">SIFRA AI</div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav id="menu">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="founder.html">Founder</a>
       <a href="contact.html">Contact</a>
-    </nav>
+    </div>
   </header>
-  <main class="center-content">
+
+  <!-- Hero Section -->
+  <section class="hero full-screen">
     <h1>SIFRA AI</h1>
-    <p>World's First AI Autonomous Data Scientist</p>
-    <button onclick="learnMore()">Learn More</button>
-  </main>
+    <h3>World's First AI Autonomous Data Scientist</h3>
+    <p>
+      Empowering industries and individuals with autonomous data science powered by AI.
+    </p>
+    <button class="cta small" onclick="learnMore()">Learn More</button>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="section">
+    <h2>About Me</h2>
+    <p style="max-width: 600px; margin: auto;">
+      I am Sanket Sarjerao Patil, the creator of SIFRA AI. With a strong background in data science, AI, and cloud computing, my goal is to revolutionize how businesses and developers interact with data using autonomous intelligence.
+    </p>
+  </section>
+
+  <!-- Achievements Section -->
+  <section class="section">
+    <h2>My Achievements</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>👨‍💻 AI Innovation</h3>
+        <p>Developed the world’s first AI Autonomous Data Scientist tool.</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Research & Copyright</h3>
+        <p>Published official research, filed copyright, and registered domain: sifraai.me</p>
+      </div>
+      <div class="card">
+        <h3>💼 Internship Experience</h3>
+        <p>Worked at Google Developer Platform as an AI/ML Intern.</p>
+      </div>
+      <div class="card">
+        <h3>🚀 Microsoft Startup</h3>
+        <p>Accepted into the Microsoft for Startups Founders Hub Program.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="clean-footer">
     <p>&copy; 2025 SIFRA AI. All rights reserved.</p>
     <p>Supported by Microsoft for Startups Founders Hub</p>
   </footer>
-  <script src="script.js"></script>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
