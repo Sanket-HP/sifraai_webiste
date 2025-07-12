@@ -19,15 +19,13 @@
 
   <section class="contact-main">
     <h2>Contact Us</h2>
-    <form class="contact-form" id="contactForm">
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="email" name="email" placeholder="Contact Info" required />
-      <input type="text" name="subject" placeholder="Subject" required />
-      <textarea name="message" rows="5" placeholder="Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-    <p id="responseMessage" style="color: lightgreen; display: none;">Message sent successfully ✅</p>
-  </section>
+    <form class="contact-form" action="https://script.google.com/macros/s/AKfycbwgYYgBWlHDKiGIQ3KZkeHL5k1DOgivuZwK34-rZmluhb2Fw5NApcOOixQ5lKVQodGk4w/exec" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="text" name="subject" placeholder="Subject" required>
+  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  <button type="submit">Send</button>
+</form>
 
   <footer class="clean-footer">
     <p>Supported by Microsoft for Startups – Founder Hub</p>
