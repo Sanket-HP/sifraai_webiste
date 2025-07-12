@@ -14,6 +14,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -34,6 +35,7 @@ nav {
   background: #222;
   border-radius: 6px;
   overflow: hidden;
+  z-index: 999;
 }
 
 nav a {
@@ -47,7 +49,10 @@ nav a:hover {
   background-color: #444;
 }
 
-.center-content, .about-main, .founder-main, .contact-main {
+.center-content,
+.about-main,
+.founder-main,
+.contact-main {
   padding: 2rem;
   text-align: center;
 }
@@ -92,8 +97,14 @@ button:hover {
 }
 
 @keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(40px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .contact-form {
@@ -124,25 +135,8 @@ footer {
   text-align: center;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
-  .card-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .founder-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  nav {
-    right: 0;
-    left: 0;
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
   header {
     flex-direction: column;
     align-items: flex-start;
@@ -153,11 +147,52 @@ footer {
     margin-top: 0.5rem;
   }
 
+  nav {
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .founder-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .contact-form {
     width: 100%;
     padding: 0 1rem;
   }
-} 
+
+  .center-content {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .main-image.responsive-logo {
+    max-width: 100px;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body,
+  html {
+    font-size: 16px;
+  }
+
+  .main-image.responsive-logo {
+    max-width: 90px;
+  }
+
+  .clean-footer p {
+    font-size: 0.75rem;
+  }
+}
 
 /* Specific background colors for each page */
 .index-page {
@@ -181,7 +216,8 @@ footer {
 }
 
 /* Smaller logo image on index */
-.main-image.small {
+.main-image.small,
+.main-image.responsive-logo {
   max-width: 150px;
   height: auto;
   margin-bottom: 1rem;
