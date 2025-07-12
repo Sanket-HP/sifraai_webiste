@@ -6,21 +6,18 @@
   <title>SIFRA AI</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="ai-bg index-page">
+<body class="index-page">
   <header>
     <div class="logo">SIFRA AI</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     <nav id="menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="founder.html">Founder</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main class="center-content">
-    <h2 id="typing" class="typing-text"></h2>
     <h1>SIFRA AI</h1>
     <p>World's First AI Autonomous Data Scientist</p>
     <button onclick="learnMore()">Learn More</button>
@@ -31,6 +28,15 @@
     <p>Supported by Microsoft for Startups Founders Hub</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+
+    function learnMore() {
+      alert("SIFRA AI is revolutionizing autonomous data science!");
+    }
+  </script>
 </body>
 </html>
