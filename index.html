@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sifra AI - Autonomous Data Scientist</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sifra AI - Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="index-page">
   <header>
-    <div class="logo">Sifra AI</div>
+    <img src="logo.png" alt="Sifra Logo" class="logo" style="height: 40px;" />
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav id="nav">
+    <nav id="menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="founder.html">Founder</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="center-content">
+  <section class="center-content">
     <h1>Welcome to Sifra AI</h1>
-    <p>Sifra AI: World's First Autonomous Data Scientist Tool</p>
-    <a href="https://www.techrxiv.org/users/889486/articles/1266904-sifra-ai-an-autonomous-data-scientist-for-generating-code-and-outputs-across-python-r-and-sql" target="_blank">
-      <button>Read Research Paper</button>
-    </a>
-  </main>
+    <p>The world's first AI autonomous data scientist tool.</p>
+    <button onclick="window.location.href='about.html'">Learn More</button>
+  </section>
 
   <footer class="clean-footer">
     <p>Supported by Microsoft for Startups – Founder Hub</p>
     <p>&copy; 2025 Sifra AI. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("menu");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
