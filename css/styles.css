@@ -1,338 +1,74 @@
-/* Reset & Base */
-* {
-  box-sizing: border-box;
-}
+/* === RESET & BASE === */ body, html { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; color: #fff; background: #0f2027; overflow-x: hidden; }
 
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  background: #0f2027;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/assets/img/bg.jpg') no-repeat center center/cover; z-index: -2; opacity: 0.03; animation: fadeBackground 20s infinite alternate; }
 
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: transparent;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  animation: slideDown 0.7s ease-out;
-}
+@keyframes fadeBackground { 0% { opacity: 0.03; } 100% { opacity: 0.08; } }
 
-@keyframes slideDown {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+/* === HEADER === */ header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: transparent; color: white; position: sticky; top: 0; z-index: 999; animation: slideDown 0.7s ease-out; }
 
-.logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-}
+@keyframes slideDown { 0% { transform: translateY(-100%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
 
-.menu-icon {
-  cursor: pointer;
-  font-size: 1.8rem;
-  transition: transform 0.3s ease;
-}
+.logo { font-weight: bold; font-size: 1.5rem; }
 
-.menu-icon:hover {
-  transform: rotate(90deg);
-}
+.menu-icon { cursor: pointer; font-size: 1.8rem; transition: transform 0.3s ease; } .menu-icon:hover { transform: rotate(90deg); }
 
-nav {
-  display: none;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background: #1e1e1e;
-  border-radius: 6px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  z-index: 999;
-  flex-direction: column;
-}
+nav { display: none; position: absolute; top: 60px; right: 20px; background: #1e1e1e; border-radius: 6px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); z-index: 999; flex-direction: column; }
 
-nav a {
-  display: block;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
+nav a { display: block; color: white; padding: 10px 20px; text-decoration: none; transition: background 0.3s; }
 
-nav a:hover {
-  background-color: #333;
-}
+nav a:hover { background-color: #333; }
 
-/* Layout Containers */
-main {
-  flex: 1;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-}
+/* === MAIN CONTENT === */ .center-content, .about-main, .contact-main { padding: 2rem; text-align: center; animation: fadeInUp 1.5s ease-out; }
 
-.founder-main {
-  justify-content: center;
-}
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Buttons */
-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+button { padding: 0.75rem 1.5rem; background-color: #0078d4; color: white; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; }
 
-button:hover {
-  background-color: #005fa3;
-}
+button:hover { background-color: #005fa3; transform: scale(1.05); }
 
-/* Cards */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 2rem 0;
-  max-width: 960px;
-  width: 100%;
-}
+/* === CARDS === */ .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; padding: 2rem 0; animation: fadeInUp 1.2s ease-in-out; }
 
-.card {
-  background: #ffffff;
-  color: #333;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  padding: 1.5rem;
-  width: 90%;
-  max-width: 320px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 0.8s ease forwards;
-}
+.card { background: #ffffff; color: #333; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); padding: 1.5rem; width: 260px; transition: transform 0.3s ease, box-shadow 0.3s ease; animation: fadeInCard 0.8s ease-out forwards; }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
+.card:hover { transform: translateY(-10px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@keyframes fadeInCard { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
 
-/* Forms */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin: 0 auto;
-  gap: 1rem;
-  padding: 1rem;
-}
+/* === CONTACT FORM === */ .contact-form { display: flex; flex-direction: column; max-width: 400px; margin: 0 auto; gap: 1rem; padding: 1rem; }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  color: #000;
-  width: 100%;
-  box-sizing: border-box;
-}
+.contact-form input, .contact-form textarea { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; color: #000; width: 100%; box-sizing: border-box; }
 
-/* Page Backgrounds */
-.index-page {
-  background-color: #0f2027;
-}
+/* === PAGE BACKGROUNDS === */ .index-page { background-color: #0f2027; }
 
-.about-page {
-  background-color: #2c3e50;
-}
+.about-page { background-color: #2c3e50; }
 
-.founder-page {
-  background-color: #1e272e;
-}
+.contact-page { background-color: #3a3a3a; }
 
-.contact-page {
-  background-color: #3a3a3a;
-}
+/* === FOOTER === */ footer, .clean-footer { background: #000; color: #fff; padding: 1rem; text-align: center; font-size: 0.9rem; margin-top: 2rem; animation: fadeInUp 1s ease-out; }
 
-/* Footer */
-footer,
-.clean-footer {
-  background: #000;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-  margin-top: auto;
-}
+.clean-footer p { margin: 0.25rem 0; line-height: 1.5; }
 
-.clean-footer p {
-  margin: 0.25rem 0;
-  line-height: 1.5;
-}
+/* === RESPONSIVE === */ @media (max-width: 768px) { header { flex-direction: column; align-items: flex-start; }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.menu-icon { align-self: flex-end; margin-top: 0.5rem; }
 
-  .menu-icon {
-    align-self: flex-end;
-    margin-top: 0.5rem;
-  }
+nav { right: 0; left: 0; width: 100%; display: flex; }
 
-  nav {
-    left: 0;
-    right: 0;
-    width: 100%;
-    display: flex;
-  }
+.card-container { flex-direction: column; align-items: center; }
 
-  .card-container {
-    flex-direction: column;
-    align-items: center;
-  }
+.contact-form { width: 100%; padding: 1rem; }
 
-  .card {
-    width: 90%;
-    max-width: 100%;
-  }
+.center-content { padding: 1.5rem; text-align: center; } }
 
-  .contact-form {
-    width: 100%;
-    padding: 1rem;
-  }
+@media (max-width: 480px) { body, html { font-size: 16px; }
 
-  .center-content {
-    padding: 1.5rem;
-    text-align: center;
-  }
-}
+button { width: 100%; }
 
-@media (max-width: 480px) {
-  html {
-    font-size: 16px;
-  }
+nav a { padding: 15px; }
 
-  .logo {
-    font-size: 1.3rem;
-  }
+.clean-footer p { font-size: 0.8rem; }
 
-  button {
-    width: 100%;
-  }
+.center-content { padding: 1rem; }
 
-  nav a {
-    padding: 15px;
-  }
+.contact-form { padding: 1rem; } }
 
-  .clean-footer p {
-    font-size: 0.8rem;
-  }
-
-  .card {
-    padding: 1.25rem;
-  }
-
-  .center-content {
-    padding: 1rem;
-  }
-
-  .contact-form {
-    padding: 1rem;
-  }
-}
-
-/* Typing Text Animation */
-.typing-text {
-  font-size: 1.2rem;
-  color: #38bdf8;
-  margin-top: 1rem;
-  min-height: 1.5em;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid #38bdf8;
-}
-
-/* Dark Mode Support */
-body.dark-mode {
-  background: #0a0a0a;
-  color: #e0e0e0;
-}
-
-body.dark-mode .card {
-  background: #1a1a1a;
-  color: #fff;
-}
-
-body.dark-mode nav {
-  background: #222;
-}
-
-.theme-toggle {
-  background: transparent;
-  border: 2px solid white;
-  padding: 5px 10px;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: auto;
-}
-
-/* Scroll Reveal Animation */
-.card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Ensure Footer Stays at Bottom */
-html, body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-}
