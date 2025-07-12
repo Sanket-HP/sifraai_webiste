@@ -1,30 +1,36 @@
+// Toggle Mobile Menu
 function toggleMenu() {
   const menu = document.getElementById("menu");
   menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 
+// Learn More Button Alert
 function learnMore() {
   alert("SIFRA AI is revolutionizing autonomous data science!");
 }
 
+// Contact Form Submit Handler
 function submitForm(event) {
   event.preventDefault();
   alert("Thank you! Message sent to SIFRA Founder.");
 }
 
-// Typing animation
+// Typing Animation on Home Page
 const text = "World's First AI Autonomous Data Scientist";
 let i = 0;
 function type() {
   if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 75);
+    const typingElement = document.getElementById("typing");
+    if (typingElement) {
+      typingElement.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 75);
+    }
   }
 }
 window.onload = type;
 
-// Scroll reveal cards
+// Scroll-Based Reveal Animation for .card Elements
 window.addEventListener("scroll", () => {
   document.querySelectorAll(".card").forEach((card) => {
     const rect = card.getBoundingClientRect();
@@ -34,7 +40,7 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Dark Mode Toggle
+// Toggle Dark Mode Theme
 function toggleTheme() {
   document.body.classList.toggle("dark-mode");
 }
