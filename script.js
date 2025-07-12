@@ -1,9 +1,3 @@
-// Toggle Menu
-function toggleMenu() {
-  const menu = document.getElementById("menu");
-  menu.classList.toggle("show");
-}
-
 // Learn More Button
 function learnMore() {
   alert("SIFRA AI is revolutionizing autonomous data science!");
