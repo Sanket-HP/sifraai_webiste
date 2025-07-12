@@ -4,19 +4,24 @@ body {
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   background: #0f2027;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: transparent;
+  background-color: transparent;
   color: white;
   position: sticky;
   top: 0;
   z-index: 999;
   animation: slideDown 0.7s ease-out;
+  flex-wrap: wrap;
 }
 
 @keyframes slideDown {
@@ -35,24 +40,12 @@ header {
   font-size: 1.5rem;
 }
 
-/* Unified Menu Styling */
-.menu-icon {
-  display: none;
-  cursor: pointer;
-  font-size: 1.8rem;
-  color: #fff;
-  z-index: 1001;
-  transition: transform 0.3s ease;
-}
-
-.menu-icon:hover {
-  transform: rotate(90deg);
-}
-
+/* No hamburger, always visible menu */
 nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
+  margin-top: 0.5rem;
 }
 
 nav a {
@@ -67,39 +60,7 @@ nav a:hover {
   border-radius: 5px;
 }
 
-nav.show {
-  display: flex !important;
-}
-
-/* Responsive Mobile Menu */
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #1f2937;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    width: calc(100% - 40px);
-    box-sizing: border-box;
-    z-index: 1000;
-  }
-
-  nav a {
-    padding: 1rem;
-    width: 100%;
-    text-align: center;
-    font-size: 1.1rem;
-  }
-}
-
+/* Content Layouts */
 .center-content,
 .about-main,
 .contact-main {
@@ -121,6 +82,7 @@ button:hover {
   background-color: #005fa3;
 }
 
+/* Card Styles */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -156,6 +118,7 @@ button:hover {
   }
 }
 
+/* Contact Form */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -205,18 +168,38 @@ footer,
   line-height: 1.5;
 }
 
-/* Mobile Styles */
+/* Responsive Layout (just resizing, not hiding nav) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+
+  nav a {
+    padding: 0.5rem 1rem;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
 @media (max-width: 480px) {
-  html, body {
+  html,
+  body {
     font-size: 16px;
   }
 
   button {
     width: 100%;
-  }
-
-  .clean-footer p {
-    font-size: 0.8rem;
   }
 
   .center-content {
@@ -227,7 +210,7 @@ footer,
     padding: 1rem;
   }
 
-  .card {
-    width: 90%;
+  .clean-footer p {
+    font-size: 0.8rem;
   }
 }
