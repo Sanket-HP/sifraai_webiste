@@ -1,20 +1,27 @@
+/* Reset & Base */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  color: #333;
-  background: #f9f9f9;
+  color: #fff;
+  background: #0f2027;
 }
 
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
-  background: #111;
+  background: transparent;
   color: white;
   position: sticky;
   top: 0;
   z-index: 999;
-  flex-wrap: wrap;
+  animation: slideDown 0.7s ease-out;
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 .logo {
@@ -25,6 +32,10 @@ header {
 .menu-icon {
   cursor: pointer;
   font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+.menu-icon:hover {
+  transform: rotate(90deg);
 }
 
 nav {
@@ -32,9 +43,9 @@ nav {
   position: absolute;
   top: 60px;
   right: 20px;
-  background: #222;
+  background: #1e1e1e;
   border-radius: 6px;
-  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
   z-index: 999;
 }
 
@@ -43,10 +54,11 @@ nav a {
   color: white;
   padding: 10px 20px;
   text-decoration: none;
+  transition: background 0.3s;
 }
 
 nav a:hover {
-  background-color: #444;
+  background-color: #333;
 }
 
 .center-content,
@@ -57,6 +69,7 @@ nav a:hover {
   text-align: center;
 }
 
+/* Button */
 button {
   padding: 0.75rem 1.5rem;
   background-color: #0078d4;
@@ -64,12 +77,13 @@ button {
   border: none;
   border-radius: 25px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-
 button:hover {
   background-color: #005fa3;
 }
 
+/* Cards */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -79,34 +93,32 @@ button:hover {
 }
 
 .card {
-  background: white;
+  background: #ffffff;
+  color: #333;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   padding: 1.5rem;
-  width: 220px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  width: 240px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease forwards;
 }
-
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.animated {
-  animation: fadeInUp 1s ease-out forwards;
-}
-
 @keyframes fadeInUp {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(40px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* Contact Form */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -121,18 +133,40 @@ button:hover {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
+  color: #000;
 }
 
-/* AI Background */
-.ai-bg {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: white;
+/* Page Backgrounds */
+.index-page {
+  background-color: #0f2027;
 }
 
-footer {
+.about-page {
+  background-color: #2c3e50;
+}
+
+.founder-page {
+  background-color: #1e272e;
+}
+
+.contact-page {
+  background-color: #3a3a3a;
+}
+
+/* Footer */
+footer,
+.clean-footer {
+  background: #000;
+  color: #fff;
   padding: 1rem;
-  background: #eee;
   text-align: center;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.clean-footer p {
+  margin: 0.25rem 0;
+  line-height: 1.5;
 }
 
 /* Responsive Design */
@@ -158,24 +192,9 @@ footer {
     align-items: center;
   }
 
-  .founder-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
   .contact-form {
     width: 100%;
     padding: 0 1rem;
-  }
-
-  .center-content {
-    padding: 1rem;
-    text-align: center;
-  }
-
-  .main-image.responsive-logo {
-    max-width: 100px;
-    margin-top: 1rem;
   }
 }
 
@@ -185,54 +204,15 @@ footer {
     font-size: 16px;
   }
 
-  .main-image.responsive-logo {
-    max-width: 90px;
+  button {
+    width: 100%;
+  }
+
+  nav a {
+    padding: 15px;
   }
 
   .clean-footer p {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
-}
-
-/* Specific background colors for each page */
-.index-page {
-  background: #0f2027;
-  color: #fff;
-}
-
-.about-page {
-  background: #2c3e50;
-  color: #fff;
-}
-
-.founder-page {
-  background: #1e272e;
-  color: #fff;
-}
-
-.contact-page {
-  background: #3a3a3a;
-  color: #fff;
-}
-
-/* Smaller logo image on index */
-.main-image.small,
-.main-image.responsive-logo {
-  max-width: 150px;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-/* Clean footer style */
-.clean-footer {
-  background: #000;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-.clean-footer p {
-  margin: 0.25rem 0;
-  line-height: 1.5;
 }
