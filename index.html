@@ -3,86 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sifra AI – Autonomous Data Scientist</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+  <title>SIFRA AI</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <img src="logo.png" alt="Sifra AI Logo" class="logo" />
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <div class="nav-links" id="navLinks">
-      <a href="#about-sifra">About</a>
-      <a href="#app-preview">App</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Hey there, nice to meet you.</h1>
-    <h3>World’s First AI Autonomous Data Scientist Tool</h3>
-    <p>I'm your personal AI assistant — designed to boost your productivity and intelligence.</p>
-    <a href="#about-sifra" class="cta small">Learn More</a>
-  </section>
-
-  <!-- About Section -->
-  <section id="about-sifra" class="full-screen section">
-    <div class="about-grid">
-      <div class="about-image">
-        <img src="Founder.jpg" alt="Founder Sanket Sarjerao Patil" />
-      </div>
-      <div class="about-content">
-        <h2>About Sifra AI</h2>
-        <p>
-          Sifra AI is the world's first autonomous data scientist tool, developed by Indian student Sanket Sarjerao Patil. 
-          He is also the author of the book <strong>"The 1% Theory: Building Success from Belief"</strong>, inspired by Virat Kohli's philosophy.
-          Sanket is pursuing a B.Tech in Computer Science and Engineering with a specialization in Data Science. 
-          His research paper on Sifra AI is published on TechRxiv and can be read at: 
-          <a href="https://www.techrxiv.org/users/889486/articles/1266904-sifra-ai-an-autonomous-data-scientist-for-generating-code-and-outputs-across-python-r-and-sql" target="_blank">TechRxiv.org</a>.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- App Preview Section -->
-  <section id="app-preview" class="full-screen section">
-    <div class="app-grid">
-      <div class="app-preview">
-        <img src="mobile-mockup.jpg" alt="Sifra App Preview" />
-      </div>
-      <div class="app-description">
-        <h2>Mobile App – MVP Stage</h2>
-        <p>
-          Currently in the MVP stage, available only as a mobile app (not yet published).  
-          It uses a custom GPT model hosted on Microsoft Azure and is supported by the Microsoft for Startups Founder Hub.
-          The frontend is built using Flutter and Android Studio.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section full-screen section">
-    <h2>Contact the Founder</h2>
-    <form onsubmit="return sendMessage(event)">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email Address" required />
-      <input type="text" name="subject" placeholder="Subject" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="cta small">Send</button>
-    </form>
-    <p id="confirmation-message" style="color: lightgreen; text-align: center; margin-top: 10px;"></p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-   <img src="Microsoft-logo.png" alt="Microsoft Logo" />
-    <p>Supported by Microsoft for Startups Founder Hub</p>
-    <small>© 2025 Sanket Sarjerao Patil – All Rights Reserved</small>
+<body class="ai-bg">
+  <header>
+    <div class="logo">SIFRA AI</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <nav id="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="founder.html">Founder</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main class="center-content">
+    <img src="images/logo.png" alt="AI Image" class="main-image"/>
+    <h1>SIFRA AI</h1>
+    <p>World's First AI Autonomous Data Scientist</p>
+    <button onclick="learnMore()">Learn More</button>
+  </main>
+  <footer>
+    <p>&copy; 2025 SIFRA AI. All rights reserved.</p>
   </footer>
-
+  <script src="js/script.js"></script>
 </body>
 </html>
