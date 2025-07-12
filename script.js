@@ -4,43 +4,41 @@ function toggleMenu() {
   menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 
-// Learn More Button Alert
+// Learn More Button
 function learnMore() {
   alert("SIFRA AI is revolutionizing autonomous data science!");
 }
 
-// Contact Form Submit Handler
+// Submit Contact Form
 function submitForm(event) {
   event.preventDefault();
-  alert("Thank you! Message sent to SIFRA Founder.");
-}
 
-// Typing Animation on Home Page
-const text = "World's First AI Autonomous Data Scientist";
-let i = 0;
-function type() {
-  if (i < text.length) {
-    const typingElement = document.getElementById("typing");
-    if (typingElement) {
-      typingElement.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, 75);
-    }
-  }
-}
-window.onload = type;
+  const form = event.target;
+  const name = form.querySelector('input[placeholder="Name"]').value;
+  const email = form.querySelector('input[placeholder="Contact Info (Email)"]').value;
+  const subject = form.querySelector('input[placeholder="Subject"]').value;
+  const message = form.querySelector('textarea[placeholder="Message"]').value;
 
-// Scroll-Based Reveal Animation for .card Elements
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".card").forEach((card) => {
-    const rect = card.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      card.classList.add("visible");
-    }
-  });
-});
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("subject", subject);
+  formData.append("message", message);
 
-// Toggle Dark Mode Theme
-function toggleTheme() {
-  document.body.classList.toggle("dark-mode");
+  fetch("https://script.google.com/macros/s/AKfycbwpWM458EADciLQl3wE9E9GqxKO9RDHXQpDhyZDfbmk29NKrsjEIHT3x9XcIJVbUtRqPg/exec", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      if (response.ok) {
+        alert("✅ Message sent to SIFRA AI Founder successfully!");
+        form.reset();
+      } else {
+        alert("⚠️ Failed to send message. Please try again.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("❌ An error occurred. Please try again later.");
+    });
 }
