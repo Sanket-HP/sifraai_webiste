@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | SIFRA AI</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Sifra AI</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="script.js"></script>
 </head>
 <body class="contact-page">
   <header>
-    <div class="logo">SIFRA AI</div>
+    <div class="logo">Sifra AI</div>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav id="menu">
+    <nav id="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -19,29 +20,18 @@
 
   <main class="contact-main">
     <h1>Contact Us</h1>
-    <form 
-      id="contactForm"
-      class="contact-form"
-      action="https://script.google.com/macros/s/AKfycbwpWM458EADciLQl3wE9E9GqxKO9RDHXQpDhyZDfbmk29NKrsjEIHT3x9XcIJVbUtRqPg/exec" 
-      method="POST"
-      onsubmit="submitForm(event)"
-    >
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="email" name="email" placeholder="Contact Info (Email)" required />
-      <input type="text" name="subject" placeholder="Subject" required />
-      <textarea name="message" placeholder="Message" rows="5" required></textarea>
+    <form class="contact-form" action="https://script.google.com/macros/s/AKfycbwpWM458EADciLQl3wE9E9GqxKO9RDHXQpDhyZDfbmk29NKrsjEIHT3x9XcIJVbUtRqPg/exec" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" rows="5" placeholder="Your message" required></textarea>
       <button type="submit">Send</button>
     </form>
-    <p id="responseMessage" style="color: lightgreen; margin-top: 1rem; display: none;">
-      Message sent to SIFRA AI founder!
-    </p>
   </main>
 
   <footer class="clean-footer">
-    <p>&copy; 2025 SIFRA AI. All rights reserved.</p>
-    <p>Supported by Microsoft for Startups Founders Hub</p>
+    <p>Supported by Microsoft for Startups – Founder Hub</p>
+    <p>&copy; 2025 Sifra AI. All rights reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
