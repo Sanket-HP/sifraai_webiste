@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Sifra AI</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Sifra AI</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="about-page">
   <header>
-    <div class="logo">Sifra AI</div>
+    <img src="logo.png" alt="Sifra Logo" class="logo" style="height: 40px;" />
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav id="nav">
+    <nav id="menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="founder.html">Founder</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="about-main">
-    <h1>About Sifra AI</h1>
+  <section class="about-main">
+    <h2>About Sifra AI</h2>
+    <p>Transforming the way data science is done – fully autonomous and intelligent.</p>
+    
     <div class="card-container">
-      <div class="card">Autonomous Code Generation</div>
-      <div class="card">Multi-language Support: Python, R, SQL</div>
-      <div class="card">Real-Time Output Cells</div>
-      <div class="card">Interactive Data Science Workflows</div>
+      <div class="card">⚙️ AI-Powered Automation</div>
+      <div class="card">📊 Interactive Data Analysis</div>
+      <div class="card">🌐 Multi-language Support</div>
+      <div class="card">🚀 Real-time Model Execution</div>
     </div>
-  </main>
+  </section>
 
   <footer class="clean-footer">
     <p>Supported by Microsoft for Startups – Founder Hub</p>
     <p>&copy; 2025 Sifra AI. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("menu");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
