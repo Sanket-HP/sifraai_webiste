@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - Sifra AI</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="contact-page">
   <header>
-    <div class="logo">Sifra AI</div>
+    <img src="logo.png" alt="Sifra Logo" class="logo" style="height: 40px;" />
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <nav id="nav">
+    <nav id="menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="founder.html">Founder</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="contact-main">
-    <h1>Contact Us</h1>
-    <form class="contact-form" action="https://script.google.com/macros/s/AKfycbwpWM458EADciLQl3wE9E9GqxKO9RDHXQpDhyZDfbmk29NKrsjEIHT3x9XcIJVbUtRqPg/exec" method="POST">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="text" name="subject" placeholder="Subject" required>
-      <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+  <section class="contact-main">
+    <h2>Contact Us</h2>
+    <form class="contact-form" id="contactForm">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Contact Info" required />
+      <input type="text" name="subject" placeholder="Subject" required />
+      <textarea name="message" rows="5" placeholder="Message" required></textarea>
       <button type="submit">Send</button>
     </form>
-  </main>
+    <p id="responseMessage" style="color: lightgreen; display: none;">Message sent successfully ✅</p>
+  </section>
 
   <footer class="clean-footer">
     <p>Supported by Microsoft for Startups – Founder Hub</p>
     <p>&copy; 2025 Sifra AI. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("menu");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
+    }
+
+    // Contact form submit using Google Apps Script
+    const form = document.getElementById("contactForm");
+    const msg = document.getElementById("responseMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      fetch("https://script.google.com/macros/s/AKfycbwpWM458EADciLQl3wE9E9GqxKO9RDHXQpDhyZDfbmk29NKrsjEIHT3x9XcIJVbUtRqPg/exec", {
+        method: "POST",
+        body: new FormData(form),
+      }).then(response => {
+        msg.style.display = "block";
+        form.reset();
+      });
+    });
+  </script>
 </body>
 </html>
