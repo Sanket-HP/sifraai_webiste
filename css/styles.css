@@ -158,3 +158,45 @@ footer {
     padding: 0 1rem;
   }
 } 
+
+/* Specific background colors for each page */
+.index-page {
+  background: #0f2027;
+  color: #fff;
+}
+
+.about-page {
+  background: #2c3e50;
+  color: #fff;
+}
+
+.founder-page {
+  background: #1e272e;
+  color: #fff;
+}
+
+.contact-page {
+  background: #3a3a3a;
+  color: #fff;
+}
+
+/* Smaller logo image on index */
+.main-image.small {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Clean footer style */
+.clean-footer {
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.clean-footer p {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
