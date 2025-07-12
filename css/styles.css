@@ -1,74 +1,272 @@
-/* === RESET & BASE === */ body, html { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; color: #fff; background: #0f2027; overflow-x: hidden; }
+/* === RESET & BASE === */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background: #0f2027;
+  overflow-x: hidden;
+}
 
-body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/assets/img/bg.jpg') no-repeat center center/cover; z-index: -2; opacity: 0.03; animation: fadeBackground 20s infinite alternate; }
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/assets/img/bg.jpg') no-repeat center center/cover;
+  z-index: -2;
+  opacity: 0.04;
+  animation: fadeBackground 20s infinite alternate;
+}
 
-@keyframes fadeBackground { 0% { opacity: 0.03; } 100% { opacity: 0.08; } }
+@keyframes fadeBackground {
+  0% { opacity: 0.04; }
+  100% { opacity: 0.09; }
+}
 
-/* === HEADER === */ header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: transparent; color: white; position: sticky; top: 0; z-index: 999; animation: slideDown 0.7s ease-out; }
+/* === HEADER === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  animation: slideDown 0.7s ease-out;
+}
 
-@keyframes slideDown { 0% { transform: translateY(-100%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes slideDown {
+  0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
 
-.logo { font-weight: bold; font-size: 1.5rem; }
+.logo {
+  font-weight: bold;
+  font-size: 1.4rem;
+  height: 40px;
+}
 
-.menu-icon { cursor: pointer; font-size: 1.8rem; transition: transform 0.3s ease; } .menu-icon:hover { transform: rotate(90deg); }
+.menu-icon {
+  cursor: pointer;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+.menu-icon:hover {
+  transform: rotate(90deg);
+}
 
-nav { display: none; position: absolute; top: 60px; right: 20px; background: #1e1e1e; border-radius: 6px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); z-index: 999; flex-direction: column; }
+nav {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: #1e1e1e;
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  flex-direction: column;
+}
 
-nav a { display: block; color: white; padding: 10px 20px; text-decoration: none; transition: background 0.3s; }
+nav a {
+  display: block;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
 
-nav a:hover { background-color: #333; }
+nav a:hover {
+  background-color: #333;
+}
 
-/* === MAIN CONTENT === */ .center-content, .about-main, .contact-main { padding: 2rem; text-align: center; animation: fadeInUp 1.5s ease-out; }
+/* === MAIN CONTENT === */
+.center-content,
+.about-main,
+.contact-main {
+  padding: 2rem;
+  text-align: center;
+  animation: fadeInUp 1.5s ease-out;
+}
 
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-button { padding: 0.75rem 1.5rem; background-color: #0078d4; color: white; border: none; border-radius: 25px; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; }
+h1, h2, h3 {
+  margin-bottom: 1rem;
+}
 
-button:hover { background-color: #005fa3; transform: scale(1.05); }
+p {
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
 
-/* === CARDS === */ .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; padding: 2rem 0; animation: fadeInUp 1.2s ease-in-out; }
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-.card { background: #ffffff; color: #333; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); padding: 1.5rem; width: 260px; transition: transform 0.3s ease, box-shadow 0.3s ease; animation: fadeInCard 0.8s ease-out forwards; }
+button:hover {
+  background-color: #005fa3;
+  transform: scale(1.05);
+}
 
-.card:hover { transform: translateY(-10px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); }
+/* === CARDS === */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  animation: fadeInUp 1.2s ease-in-out;
+}
 
-@keyframes fadeInCard { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+.card {
+  background: #ffffff;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInCard 0.8s ease-out forwards;
+}
 
-/* === CONTACT FORM === */ .contact-form { display: flex; flex-direction: column; max-width: 400px; margin: 0 auto; gap: 1rem; padding: 1rem; }
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
 
-.contact-form input, .contact-form textarea { padding: 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; color: #000; width: 100%; box-sizing: border-box; }
+@keyframes fadeInCard {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
 
-/* === PAGE BACKGROUNDS === */ .index-page { background-color: #0f2027; }
+/* === CONTACT FORM === */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 1rem;
+  padding: 1rem;
+}
 
-.about-page { background-color: #2c3e50; }
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #000;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-.contact-page { background-color: #3a3a3a; }
+/* === PAGE BACKGROUNDS === */
+.index-page {
+  background-color: #0f2027;
+}
+.about-page {
+  background-color: #2c3e50;
+}
+.contact-page {
+  background-color: #3a3a3a;
+}
 
-/* === FOOTER === */ footer, .clean-footer { background: #000; color: #fff; padding: 1rem; text-align: center; font-size: 0.9rem; margin-top: 2rem; animation: fadeInUp 1s ease-out; }
+/* === FOOTER === */
+footer,
+.clean-footer {
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease-out;
+}
 
-.clean-footer p { margin: 0.25rem 0; line-height: 1.5; }
+.clean-footer p {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
 
-/* === RESPONSIVE === */ @media (max-width: 768px) { header { flex-direction: column; align-items: flex-start; }
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.menu-icon { align-self: flex-end; margin-top: 0.5rem; }
+  .menu-icon {
+    align-self: flex-end;
+    margin-top: 0.5rem;
+  }
 
-nav { position: relative; width: 100%; right: 0; left: 0; }
+  nav {
+    position: relative;
+    width: 100%;
+    right: 0;
+    left: 0;
+  }
 
-.card-container { flex-direction: column; align-items: center; }
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.contact-form { width: 100%; padding: 1rem; }
+  .contact-form {
+    width: 100%;
+    padding: 1rem;
+  }
 
-.center-content { padding: 1.5rem; text-align: center; } }
+  .center-content,
+  .about-main,
+  .contact-main {
+    padding: 1.5rem;
+    text-align: center;
+  }
 
-@media (max-width: 480px) { body, html { font-size: 16px; }
+  .logo {
+    margin-bottom: 0.5rem;
+  }
+}
 
-button { width: 100%; }
+@media (max-width: 480px) {
+  html {
+    font-size: 16px;
+  }
 
-nav a { padding: 15px; }
+  button {
+    width: 100%;
+  }
 
-.clean-footer p { font-size: 0.8rem; }
+  nav a {
+    padding: 15px;
+  }
 
-.center-content { padding: 1rem; }
+  .clean-footer p {
+    font-size: 0.8rem;
+  }
 
-.contact-form { padding: 1rem; } }
+  .contact-form,
+  .center-content {
+    padding: 1rem;
+  }
 
+  .card {
+    width: 90%;
+  }
+}
