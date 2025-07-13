@@ -22,7 +22,7 @@ header {
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   background: #000;
   border-bottom: 2px solid #0078d4;
@@ -36,34 +36,7 @@ header {
   max-width: 100%;
 }
 
-/* === MENU ICON (Mobile) === */
-.menu-icon {
-  display: none;
-  font-size: 1.8rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* === NAVIGATION BAR === */
-nav#navbar {
-  display: flex;
-  gap: 1.5rem;
-}
-
-nav#navbar a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
-
-nav#navbar a:hover {
-  background-color: #1a1a1a;
-}
-
-/* === SECTIONS === */
+/* === SECTION STYLES === */
 .section {
   min-height: 100vh;
   padding: 2rem;
@@ -99,6 +72,33 @@ button {
 button:hover {
   background-color: #005fa3;
   transform: scale(1.05);
+}
+
+/* === MVP VIDEO SECTION === */
+.video-section {
+  width: 100%;
+  padding: 2rem;
+  background: #111;
+  text-align: center;
+}
+
+.video-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.video-section p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.video-section video {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 /* === CARDS === */
@@ -188,36 +188,6 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
-
-  nav#navbar {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: #111;
-    margin-top: 1rem;
-    position: absolute;
-    top: 75px;
-    left: 0;
-    z-index: 999;
-  }
-
-  nav#navbar.show {
-    display: flex;
-  }
-
-  nav#navbar a {
-    padding: 1rem;
-    border-bottom: 1px solid #222;
-    text-align: center;
-  }
-
-  header {
-    flex-wrap: wrap;
-  }
-
   .logo img {
     height: 55px;
   }
@@ -246,6 +216,14 @@ button:hover {
 
   .contact-form {
     width: 90%;
+  }
+
+  .video-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .video-section video {
+    width: 100%;
   }
 }
 
