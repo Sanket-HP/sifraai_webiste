@@ -47,7 +47,8 @@ header {
   text-align: center;
 }
 
-.section h1, .section h2 {
+.section h1,
+.section h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -58,6 +59,7 @@ header {
   color: #ccc;
 }
 
+/* === BUTTONS === */
 button {
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
@@ -98,7 +100,7 @@ button:hover {
   max-width: 900px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* === CARDS === */
@@ -130,6 +132,36 @@ button:hover {
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* === FOUNDER SECTION === */
+#founder {
+  background-color: #1a1a1a;
+  padding: 2rem;
+}
+
+#founder h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.founder-content {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+.founder-content img {
+  width: 180px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 /* === CONTACT FORM === */
@@ -225,6 +257,10 @@ button:hover {
   .video-section video {
     width: 100%;
   }
+
+  .founder-content {
+    padding: 0 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -246,5 +282,9 @@ button:hover {
 
   .clean-footer p {
     font-size: 0.8rem;
+  }
+
+  .founder-content img {
+    width: 140px;
   }
 }
