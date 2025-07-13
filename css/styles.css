@@ -76,7 +76,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* === MVP VIDEO SECTION === */
+/* === VIDEO SECTION === */
 .video-section {
   width: 100%;
   padding: 2rem;
@@ -103,7 +103,7 @@ button:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* === CARDS === */
+/* === CARD CONTAINER === */
 .card-container {
   display: flex;
   flex-wrap: wrap;
