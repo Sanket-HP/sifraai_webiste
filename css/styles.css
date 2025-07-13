@@ -164,6 +164,21 @@ button:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
+/* === USE CASES SECTION === */
+#use-cases {
+  background-color: #0f2027;
+}
+
+#use-cases h2 {
+  color: #fff;
+}
+
+#use-cases p {
+  color: #ccc;
+  margin-bottom: 2rem;
+  max-width: 900px;
+}
+
 /* === CONTACT FORM === */
 .contact-form {
   display: flex;
