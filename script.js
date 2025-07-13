@@ -1,9 +1,6 @@
-// Toggle navbar menu for mobile
 function toggleMenu() {
   const nav = document.getElementById("menu");
-  if (nav) {
-    nav.style.display = nav.style.display === "block" ? "none" : "block";
-  }
+  nav.classList.toggle("hidden");
 }
 
 // Animate elements on page load
