@@ -1,14 +1,22 @@
-// Toggle navbar menu
+// Toggle navbar menu for mobile
 function toggleMenu() {
   const nav = document.getElementById("menu");
-  nav.style.display = nav.style.display === "block" ? "none" : "block";
+  if (nav) {
+    nav.style.display = nav.style.display === "block" ? "none" : "block";
+  }
 }
 
 // Animate elements on page load
 document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".center-content, .about-main, .contact-main, .card-container, .clean-footer");
-  elements.forEach(el => {
-    el.classList.add("fade-in");
+  const elements = document.querySelectorAll(
+    ".section, .card-container, .clean-footer"
+  );
+  elements.forEach((el, index) => {
+    el.style.opacity = 0;
+    el.style.transition = "opacity 0.6s ease-out";
+    setTimeout(() => {
+      el.style.opacity = 1;
+    }, 200 * index);
   });
 });
 
@@ -23,12 +31,19 @@ if (form) {
       method: "POST",
       body: new FormData(form),
     })
-    .then(response => {
-      msg.style.display = "block";
-      form.reset();
-    })
-    .catch(error => {
-      console.error("Error!", error.message);
-    });
+      .then(response => {
+        if (msg) {
+          msg.style.display = "block";
+          msg.innerText = "Message sent successfully!";
+        }
+        form.reset();
+      })
+      .catch(error => {
+        console.error("Error!", error.message);
+        if (msg) {
+          msg.style.display = "block";
+          msg.innerText = "Something went wrong. Try again!";
+        }
+      });
   });
 }
