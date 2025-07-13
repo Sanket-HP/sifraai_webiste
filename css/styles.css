@@ -216,3 +216,44 @@ button:hover {
     font-size: 0.8rem;
   }
 }
+
+/* === NAVIGATION BAR === */
+nav.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+nav.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+nav.nav-links a:hover {
+  background-color: #1a1a1a;
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+  nav.nav-links {
+    gap: 1rem;
+  }
+
+  nav.nav-links a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav.nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+}
