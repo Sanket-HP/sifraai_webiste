@@ -108,10 +108,11 @@ button:hover {
 }
 
 .about-content {
-  max-width: 500px;
+  max-width: 800px;
   text-align: justify;
   color: #ddd;
-  line-height: 1.7;
+  line-height: 1.8;
+  font-size: 1.1rem;
 }
 
 /* === FEATURES SECTION === */
