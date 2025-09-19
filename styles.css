@@ -127,6 +127,7 @@ a:hover {
 /* About & App Sections */
 .section {
   text-align: center;
+  padding: 3rem 1rem;
 }
 
 .about-grid,
