@@ -1,6 +1,13 @@
-/* Reset & Base */
-body {
+/* ===============================
+   Global Reset & Base Styles
+================================= */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Montserrat', sans-serif;
   color: #e2e8f0;
   background: linear-gradient(135deg, #0f172a, #1e293b, #38bdf8);
@@ -9,16 +16,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  line-height: 1.6;
 }
 
 main {
   flex: 1;
-}
-
-@keyframes bgShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 a {
@@ -30,10 +32,19 @@ a:hover {
   color: #0ea5e9;
 }
 
-/* Header */
-.navbar, header {
+/* Background Animation */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===============================
+   Header
+================================= */
+header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem 2rem;
   background-color: transparent;
@@ -42,150 +53,103 @@ a:hover {
   z-index: 1000;
 }
 
-.logo {
-  height: 100px;
+header .logo img {
+  height: 80px;
 }
 
-.nav-links, nav {
-  display: flex;
-  gap: 1.5rem;
-  font-weight: 600;
+/* ===============================
+   Sections
+================================= */
+.section {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.menu-icon, .hamburger {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   color: #fff;
 }
 
-/* Hero Section */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 3rem 1rem;
-  width: 100%;
-  box-sizing: border-box;
+.section p {
+  color: #cbd5e1;
+  margin-bottom: 1rem;
 }
 
-.full-screen {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
+/* ===============================
+   Home / Hero
+================================= */
+#home h1 {
+  font-size: 2.4rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
 }
 
-.hero img {
-  width: 240px;
-  border-radius: 8px;
+#home p {
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
-
-.hero h3 {
-  font-size: 1.1rem;
-  color: #38bdf8;
-  margin-bottom: 0.5rem;
-}
-
-.hero p {
+button {
   font-size: 1rem;
-  color: #cbd5e1;
-  max-width: 600px;
-  margin: 0 auto 1rem auto;
-}
-
-/* CTA Button */
-.cta.small, button {
-  font-size: 0.9rem;
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.4rem;
   background-color: #38bdf8;
   color: #0f172a;
   border: none;
   border-radius: 6px;
   font-weight: bold;
-  width: fit-content;
-  margin: 0 auto;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.cta.small:hover, button:hover {
+button:hover {
   background-color: #0ea5e9;
-  color: white;
+  color: #fff;
 }
 
-/* About & App Sections */
-.section {
-  text-align: center;
-  padding: 3rem 1rem;
-}
-
-.about-grid,
-.app-grid {
+/* ===============================
+   About Section
+================================= */
+.about-grid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 2rem;
   justify-content: center;
-  flex-direction: row;
-  animation: fadeIn 1s ease forwards;
+  margin-top: 2rem;
 }
 
-.app-grid {
-  flex-direction: row-reverse;
-}
-
-.about-image img,
-.app-preview img {
+.about-image img {
   width: 280px;
   border-radius: 10px;
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
 }
 
-.about-content,
-.app-description {
-  max-width: 500px;
+.about-content {
+  max-width: 550px;
   text-align: justify;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
   animation: fadeIn 1s ease forwards;
 }
 
-/* Contact Form */
-.contact-section form {
-  max-width: 500px;
-  margin: 2rem auto;
+/* ===============================
+   Card Component (Features, Use Cases, Blog, FAQ)
+================================= */
+.card-container {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: rgba(15, 23, 42, 0.6);
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
-.contact-section input,
-.contact-section textarea {
-  padding: 1rem;
-  border-radius: 6px;
-  border: none;
-  font-size: 1rem;
-  background: #fff;
-  color: #0f172a;
-}
-
-/* Card Component */
 .card {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 1.5rem;
   width: 250px;
@@ -203,131 +167,123 @@ a:hover {
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-top: 2rem;
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #38bdf8;
 }
 
-/* Footer */
-.footer,
-.clean-footer {
-  background-color: transparent;
-  color: #94a3b8;
-  text-align: center;
-  padding: 2.5rem 1rem;
-  font-size: 1rem;
+.card p {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+/* ===============================
+   Founder Section
+================================= */
+#founder {
+  color: #e2e8f0;
+}
+
+#founder h2 {
+  color: #38bdf8;
+}
+
+/* ===============================
+   Blog Section
+================================= */
+#blog .card a {
+  font-weight: 600;
+}
+
+/* ===============================
+   FAQ Section
+================================= */
+#faq .card {
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===============================
+   Contact Form
+================================= */
+.contact-form {
+  max-width: 500px;
+  margin: 2rem auto 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: rgba(15, 23, 42, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.footer img {
-  height: 40px;
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  background: #fff;
+  color: #0f172a;
+  resize: none;
 }
 
-.footer small {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
+/* ===============================
+   Availability Section
+================================= */
+#availability {
+  color: #0f172a;
 }
 
-/* Animations */
+#availability h2 {
+  color: #0f172a;
+}
+
+#availability button {
+  margin-top: 1rem;
+}
+
+/* ===============================
+   Footer
+================================= */
+.clean-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #0f2027;
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===============================
+   Animations
+================================= */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideDown {
-  0% { transform: translateY(-100%); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-/* Responsive */
+/* ===============================
+   Responsive Design
+================================= */
 @media screen and (max-width: 768px) {
-  .nav-links, nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 65px;
-    right: 20px;
-    background: #1e293b;
-    padding: 1rem;
-    z-index: 999;
-  }
-
-  .nav-links.show,
-  nav.show {
-    display: flex;
-  }
-
-  .hamburger,
-  .menu-icon {
-    display: block;
-  }
-
-  .about-grid,
-  .app-grid,
-  .card-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero img {
-    width: 180px;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero h3 {
-    font-size: 1rem;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .contact-section form {
-    width: 90%;
-    margin: 1rem auto;
-  }
+  #home h1 { font-size: 2rem; }
+  .about-grid { flex-direction: column; }
+  .card { width: 100%; max-width: 300px; }
 }
 
 @media screen and (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero h3 {
-    font-size: 0.95rem;
-  }
-
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-
-  .contact-section input,
-  .contact-section textarea {
-    font-size: 0.95rem;
-  }
-
-  .footer {
-    font-size: 0.85rem;
-  }
+  #home h1 { font-size: 1.6rem; }
+  #home p { font-size: 1rem; }
+  .section h2 { font-size: 1.5rem; }
+  .card { padding: 1rem; }
+  .contact-form input,
+  .contact-form textarea { font-size: 0.9rem; }
+  .clean-footer { font-size: 0.85rem; }
 }
