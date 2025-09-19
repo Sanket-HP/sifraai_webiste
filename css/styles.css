@@ -278,20 +278,48 @@ button:hover {
 }
 
 /* === AVAILABILITY SECTION === */
+/* Availability Section */
 #availability {
-  background-color: #f9f9f9;
-  color: #000;
+  background-color: #0c1a20; /* Dark background from your second image */
+  color: #ffffff; /* White text for contrast */
   text-align: center;
+  padding: 80px 20px;
 }
 
 #availability h2 {
-  color: #111;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
 #availability p {
   font-size: 1rem;
-  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 20px;
+  color: #d1d5db; /* Light gray for readability */
 }
+
+#availability strong {
+  color: #ffffff;
+}
+
+#availability .btn {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+#availability .btn:hover {
+  background: #0056b3;
+}
+
 
 /* === FOOTER === */
 .clean-footer {
