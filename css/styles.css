@@ -36,7 +36,7 @@ header {
   max-width: 100%;
 }
 
-/* === SECTION STYLES === */
+/* === GENERIC SECTION === */
 .section {
   min-height: 100vh;
   padding: 2rem;
@@ -57,6 +57,7 @@ header {
   font-size: 1.2rem;
   max-width: 800px;
   color: #ccc;
+  line-height: 1.6;
 }
 
 /* === BUTTONS === */
@@ -76,31 +77,65 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* === VIDEO SECTION === */
-.video-section {
-  width: 100%;
-  padding: 2rem;
-  background: #111;
-  text-align: center;
+/* === INDEX (HOME) SECTION === */
+#home h1 {
+  font-size: 3rem;
+  color: #fff;
 }
 
-.video-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+#home p {
+  font-size: 1.3rem;
+  margin-top: 1rem;
 }
 
-.video-section p {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 1rem;
+/* === ABOUT SECTION === */
+#about {
+  background-color: #111827;
 }
 
-.video-section video {
-  width: 100%;
-  max-width: 900px;
-  height: auto;
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 280px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.about-content {
+  max-width: 500px;
+  text-align: justify;
+  color: #ddd;
+  line-height: 1.7;
+}
+
+/* === FEATURES SECTION === */
+#features {
+  background-color: #0f2027;
+}
+
+#features h2 {
+  color: #fff;
+}
+
+/* === USE CASES SECTION === */
+#use-cases {
+  background-color: #1e293b;
+}
+
+#use-cases h2 {
+  color: #fff;
+}
+
+#use-cases p {
+  color: #ccc;
+  margin-bottom: 2rem;
+  max-width: 900px;
 }
 
 /* === CARD CONTAINER === */
@@ -123,8 +158,6 @@ button:hover {
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
   text-align: left;
   flex: 1 1 220px;
   max-width: 320px;
@@ -132,7 +165,7 @@ button:hover {
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .card h3 {
@@ -151,7 +184,7 @@ button:hover {
 /* === FOUNDER SECTION === */
 #founder {
   background-color: #1a1a1a;
-  padding: 2rem;
+  padding: 3rem 2rem;
 }
 
 #founder h2 {
@@ -160,17 +193,12 @@ button:hover {
   color: #fff;
 }
 
-.founder-content {
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: justify;
+#founder p {
   color: #ccc;
   line-height: 1.7;
 }
 
-.founder-content img {
+#founder img {
   width: 180px;
   height: auto;
   border-radius: 12px;
@@ -178,22 +206,56 @@ button:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* === USE CASES SECTION === */
-#use-cases {
-  background-color: #0f2027;
+/* === BLOG SECTION === */
+#blog {
+  background: #0f172a;
 }
 
-#use-cases h2 {
+#blog h2 {
   color: #fff;
 }
 
-#use-cases p {
+#blog p {
   color: #ccc;
-  margin-bottom: 2rem;
-  max-width: 900px;
 }
 
-/* === CONTACT FORM === */
+/* === FAQ SECTION === */
+#faq {
+  background: #111827;
+}
+
+#faq h2 {
+  color: #fff;
+}
+
+#faq .card {
+  background: #f9f9f9;
+  color: #000;
+  font-size: 0.95rem;
+}
+
+/* === SUBSCRIBE SECTION === */
+#subscribe {
+  background: #0f2027;
+}
+
+#subscribe h2 {
+  color: #fff;
+}
+
+#subscribe p {
+  color: #ccc;
+}
+
+/* === CONTACT SECTION === */
+#contact {
+  background: #1e293b;
+}
+
+#contact h2 {
+  color: #fff;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -212,6 +274,22 @@ button:hover {
   color: #000;
   background-color: #fff;
   width: 100%;
+}
+
+/* === AVAILABILITY SECTION === */
+#availability {
+  background-color: #f9f9f9;
+  color: #000;
+  text-align: center;
+}
+
+#availability h2 {
+  color: #111;
+}
+
+#availability p {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 /* === FOOTER === */
@@ -279,14 +357,6 @@ button:hover {
     width: 90%;
   }
 
-  .video-section h2 {
-    font-size: 1.6rem;
-  }
-
-  .video-section video {
-    width: 100%;
-  }
-
   .founder-content {
     padding: 0 1rem;
   }
@@ -313,7 +383,7 @@ button:hover {
     font-size: 0.8rem;
   }
 
-  .founder-content img {
+  #founder img {
     width: 140px;
   }
 }
