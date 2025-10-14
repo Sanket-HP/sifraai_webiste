@@ -1,3 +1,7 @@
+/* =========================================================
+   SIFRA AI - MAIN STYLESHEET
+   ========================================================= */
+
 /* === RESET & BASE === */
 * {
   margin: 0;
@@ -11,21 +15,19 @@ html, body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #0f2027;
   color: #fff;
-  overflow-x: hidden;
   scroll-behavior: smooth;
-  display: flex;
-  flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* === HEADER === */
 header {
   width: 100%;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   background: #000;
   border-bottom: 2px solid #0078d4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -36,56 +38,74 @@ header {
   max-width: 100%;
 }
 
-/* === GENERIC SECTION === */
+nav a {
+  color: #fff;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #0078d4;
+}
+
+/* === SECTIONS === */
 .section {
   min-height: 100vh;
-  padding: 2rem;
+  padding: 4rem 2rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
-.section h1,
-.section h2 {
+.section h1, .section h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 .section p {
-  font-size: 1.2rem;
-  max-width: 800px;
+  font-size: 1.1rem;
   color: #ccc;
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 900px;
 }
 
 /* === BUTTONS === */
-button {
+button, .btn {
   margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   background-color: #0078d4;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-button:hover {
+button:hover, .btn:hover {
   background-color: #005fa3;
   transform: scale(1.05);
 }
 
-/* === INDEX (HOME) SECTION === */
+/* === HOME SECTION === */
+#home {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
 #home h1 {
   font-size: 3rem;
-  color: #fff;
+  font-weight: 700;
 }
 
 #home p {
-  font-size: 1.3rem;
   margin-top: 1rem;
+  font-size: 1.3rem;
+  color: #d1d5db;
 }
 
 /* === ABOUT SECTION === */
@@ -96,32 +116,61 @@ button:hover {
 .about-grid {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 2rem;
   justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .about-image img {
-  width: 280px;
+  width: 300px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .about-content {
-  max-width: 800px;
-  text-align: justify;
+  max-width: 700px;
   color: #ddd;
   line-height: 1.8;
-  font-size: 1.1rem;
+  text-align: justify;
 }
 
 /* === FEATURES SECTION === */
 #features {
-  background-color: #0f2027;
+  background: #0f2027;
 }
 
-#features h2 {
-  color: #fff;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 1.5rem;
+  max-width: 320px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.card h3 {
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #444;
 }
 
 /* === USE CASES SECTION === */
@@ -129,91 +178,29 @@ button:hover {
   background-color: #1e293b;
 }
 
-#use-cases h2 {
-  color: #fff;
-}
-
 #use-cases p {
   color: #ccc;
-  margin-bottom: 2rem;
-  max-width: 900px;
-}
-
-/* === CARD CONTAINER === */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  padding-top: 2rem;
-}
-
-.card {
-  background: #ffffff;
-  color: #000;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  padding: 1.5rem;
-  min-height: 100px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  flex: 1 1 220px;
-  max-width: 320px;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-.card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  color: #000;
-}
-
-.card a {
-  margin-top: 0.75rem;
-  font-size: 0.95rem;
-  color: #0078d4;
-  text-decoration: underline;
+  max-width: 800px;
+  margin-bottom: 1.5rem;
 }
 
 /* === FOUNDER SECTION === */
 #founder {
   background-color: #1a1a1a;
-  padding: 3rem 2rem;
-}
-
-#founder h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  color: #fff;
-}
-
-#founder p {
-  color: #ccc;
-  line-height: 1.7;
+  text-align: center;
+  padding: 4rem 2rem;
 }
 
 #founder img {
   width: 180px;
-  height: auto;
   border-radius: 12px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 /* === BLOG SECTION === */
 #blog {
   background: #0f172a;
-}
-
-#blog h2 {
-  color: #fff;
 }
 
 #blog p {
@@ -225,14 +212,12 @@ button:hover {
   background: #111827;
 }
 
-#faq h2 {
-  color: #fff;
-}
-
 #faq .card {
   background: #f9f9f9;
   color: #000;
-  font-size: 0.95rem;
+  text-align: left;
+  max-width: 700px;
+  width: 100%;
 }
 
 /* === SUBSCRIBE SECTION === */
@@ -240,105 +225,59 @@ button:hover {
   background: #0f2027;
 }
 
-#subscribe h2 {
-  color: #fff;
-}
-
-#subscribe p {
-  color: #ccc;
-}
-
 /* === CONTACT SECTION === */
 #contact {
   background: #1e293b;
 }
 
-#contact h2 {
-  color: #fff;
-}
-
 .contact-form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  width: 100%;
   gap: 1rem;
   margin-top: 2rem;
+  max-width: 400px;
+  width: 100%;
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
   border-radius: 8px;
-  color: #000;
-  background-color: #fff;
-  width: 100%;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 /* === AVAILABILITY SECTION === */
-/* Availability Section */
 #availability {
-  background-color: #0c1a20; /* Dark background from your second image */
-  color: #ffffff; /* White text for contrast */
+  background: #0c1a20;
   text-align: center;
   padding: 80px 20px;
 }
 
 #availability h2 {
   font-size: 2rem;
-  font-weight: 700;
   margin-bottom: 20px;
-  color: #ffffff;
 }
 
 #availability p {
   font-size: 1rem;
   line-height: 1.6;
+  color: #d1d5db;
   max-width: 700px;
   margin: 0 auto 20px;
-  color: #d1d5db; /* Light gray for readability */
 }
-
-#availability strong {
-  color: #ffffff;
-}
-
-#availability .btn {
-  display: inline-block;
-  background: #007bff;
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 25px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-#availability .btn:hover {
-  background: #0056b3;
-}
-
 
 /* === FOOTER === */
 .clean-footer {
   background: #000;
-  color: #fff;
+  border-top: 2px solid #0078d4;
   padding: 1.5rem;
   text-align: center;
+  color: #fff;
   font-size: 0.9rem;
-  border-top: 2px solid #0078d4;
-  margin-top: auto;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.clean-footer p {
-  margin: 0.25rem 0;
-  line-height: 1.5;
-}
-
-/* === ANIMATIONS === */
+/* === ANIMATION === */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
@@ -349,70 +288,40 @@ button:hover {
   .section h1, .section h2 {
     font-size: 2.2rem;
   }
-
-  .card {
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 768px) {
-  .logo img {
-    height: 55px;
+  nav {
+    display: none;
   }
 
   .section {
-    padding: 1.5rem;
+    padding: 2rem 1rem;
   }
 
-  .section h1, .section h2 {
-    font-size: 1.8rem;
-  }
-
-  button {
-    width: 80%;
+  .about-grid {
+    flex-direction: column;
   }
 
   .card-container {
     flex-direction: column;
-    align-items: center;
   }
 
   .card {
     width: 90%;
-    max-width: 90%;
-  }
-
-  .contact-form {
-    width: 90%;
-  }
-
-  .founder-content {
-    padding: 0 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .logo img {
-    height: 48px;
-  }
-
-  .section h1, .section h2 {
-    font-size: 1.6rem;
+  #home h1 {
+    font-size: 2rem;
   }
 
   button {
     width: 100%;
   }
 
-  .contact-form {
-    padding: 0 0.5rem;
-  }
-
   .clean-footer p {
     font-size: 0.8rem;
-  }
-
-  #founder img {
-    width: 140px;
   }
 }
