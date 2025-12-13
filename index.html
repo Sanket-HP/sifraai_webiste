@@ -1,156 +1,370 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sifra AI - Autonomous Data Scientist</title>
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIFRA AI | Autonomous Data Scientist Engine</title>
+    <meta name="description" content="Sifra AI - The World's First Autonomous Data Scientist Engine. Automate data analysis, insights, and visualization.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        sifra: {
+                            bg: '#020617', // Slate 950
+                            card: '#0f172a', // Slate 900
+                            accent: '#06b6d4', // Cyan 500
+                            purple: '#8b5cf6', // Violet 500
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-pattern': "url('https://grainy-gradients.vercel.app/noise.svg')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: #06b6d4;
+            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
+
+        /* Video Container */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            box-shadow: 0 0 40px rgba(6, 182, 212, 0.1);
+            background: #000;
+        }
+        
+        .video-wrapper iframe, .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
+<body class="bg-hero-pattern">
 
-<body>
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="Sifra AI Logo" />
-    </div>
-  </header>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center text-white font-bold font-orbitron text-xl shadow-lg shadow-cyan-500/20">S</div>
+                    <span class="font-orbitron font-bold text-xl tracking-wider text-white">SIFRA<span class="text-cyan-400">.AI</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#features" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</a>
+                        <a href="#demo" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Demo</a>
+                        <a href="#use-cases" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Use Cases</a>
+                        <a href="#founder" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Founder</a>
+                        <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="bg-cyan-600/20 text-cyan-400 border border-cyan-500/50 hover:bg-cyan-600 hover:text-white px-4 py-2 rounded-full text-sm font-bold transition-all">Launch App</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-slate-900 border-b border-white/10" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Features</a>
+                <a href="#demo" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Demo</a>
+                <a href="#use-cases" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Use Cases</a>
+                <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="text-cyan-400 block px-3 py-2 rounded-md text-base font-medium">Launch App</a>
+            </div>
+        </div>
+    </nav>
 
-  <main>
-    <!-- Home Section -->
-    <section id="home" class="section">
-      <h1>Welcome to Sifra AI</h1>
-      <p>
-        The World's First <strong>Autonomous Data Scientist Platform</strong> that automates data analysis, code generation, and visualization across Python, R, and SQL — powered by advanced LLM and AI-driven automation.
-      </p>
-      <a href="https://www.techrxiv.org/users/889486/articles/1266904-sifra-ai-an-autonomous-data-scientist-for-generating-code-and-outputs-across-python-r-and-sql" target="_blank" rel="noopener noreferrer">
-        <button>Read Research Publication</button>
-      </a>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Ambient Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[120px] -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 backdrop-blur-sm" data-aos="fade-down">
+                <span class="text-green-400 text-xs font-mono tracking-widest uppercase flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    System Online & Available
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-orbitron font-black text-white mb-8 leading-tight" data-aos="fade-up">
+                SIFRA AI <br />
+                <span class="text-gradient-accent text-3xl md:text-6xl">Autonomous Data Scientist Engine</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400" data-aos="fade-up" data-aos-delay="100">
+                Transform raw data into strategic intelligence instantly. The world's first autonomous engine designed to automate the entire data science lifecycle—from cleaning to visualization—with AI precision.
+            </p>
+            <div class="mt-10 flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold rounded-lg transition-all shadow-lg shadow-cyan-900/40 flex items-center gap-2">
+                    Launch Sifra Engine <i class="fas fa-rocket"></i>
+                </a>
+                <a href="https://www.techrxiv.org/users/889486/articles/1266904-sifra-ai-an-autonomous-data-scientist-for-generating-code-and-outputs-across-python-r-and-sql" target="_blank" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg border border-slate-600 transition-all">
+                    Read Research
+                </a>
+            </div>
+        </div>
     </section>
 
-    <!-- Product Demo Section -->
-    <section id="demo" class="section">
-      <h2>🎥 Product Demo – Sifra AI in Action</h2>
-      <p>Watch how Sifra AI automates data science workflows — from understanding natural language queries to generating Python, R, and SQL code instantly.</p>
-      <video controls poster="thumbnail.jpg">
-        <source src="https://github.com/Sanket-HP/sifraai_webiste/raw/main/Video/sifra-mvp-demo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 bg-slate-950/50 border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4">Engine in <span class="text-cyan-400">Action</span></h2>
+                <p class="text-slate-400">Watch the Autonomous Data Scientist process natural language into deep analytical insights.</p>
+            </div>
+            
+            <div class="video-wrapper bg-slate-900" data-aos="zoom-in">
+                <video controls class="absolute inset-0 w-full h-full object-cover" poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop">
+                    <source src="https://github.com/Sanket-HP/sifraai_webiste/raw/main/Video/sifra-mvp-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-      <h2>About Sifra AI</h2>
-      <p>
-        <strong>Sifra AI</strong> is an autonomous data scientist platform developed by 
-        <strong>Sanket Sarjerao Patil</strong>. It simplifies complex data science workflows — from data cleaning, transformation, and visualization to model generation — through automation and natural language understanding.
-      </p>
-      <p>
-        Built using <strong>Flutter</strong>, <strong>Android Studio</strong>, and a robust <strong>Python backend</strong>, 
-        Sifra AI integrates with <strong>Azure</strong> and <strong>Google Cloud</strong> for scalable deployment. 
-        It offers <strong>real-time insights</strong> and <strong>multi-language code generation</strong> with AI-driven intelligence.
-      </p>
-    </section>
+    <!-- Features Grid -->
+    <section id="features" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4">Core <span class="text-purple-400">Capabilities</span></h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Built on a robust Python backend with Flutter integration, Sifra scales from local analysis to cloud enterprise solutions.</p>
+            </div>
 
-    <!-- Features Section -->
-    <section id="features" class="section">
-      <h2>Core Features</h2>
-      <div class="card-container">
-        <div class="card">🤖 Autonomous Data Analysis</div>
-        <div class="card">💡 Real-Time Code Generation (Python, R, SQL)</div>
-        <div class="card">📊 Smart Data Visualization</div>
-        <div class="card">☁️ Cloud-Integrated Execution</div>
-        <div class="card">🔐 Secure AI Workflows</div>
-      </div>
-    </section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Autonomous Analysis</h3>
+                    <p class="text-slate-400 text-sm">Automated data cleaning, transformation, and insight generation without human intervention.</p>
+                </div>
 
-    <!-- Use Cases Section -->
-    <section id="use-cases" class="section">
-      <h2>Use Cases & Industry Applications</h2>
-      <div class="card-container">
-        <div class="card">Business Intelligence Automation</div>
-        <div class="card">Academic Research and Prototyping</div>
-        <div class="card">Financial Forecasting</div>
-        <div class="card">Healthcare Data Insights</div>
-        <div class="card">Real-Time Analytics for E-commerce</div>
-        <div class="card">AI-Powered Code Generation for Engineers</div>
-      </div>
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Predictive Modeling</h3>
+                    <p class="text-slate-400 text-sm">Deploy advanced statistical models and machine learning algorithms automatically based on your data patterns.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-pie text-2xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Smart Viz</h3>
+                    <p class="text-slate-400 text-sm">Intelligent selection of charts and graphs to best represent your data patterns.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Cloud Native</h3>
+                    <p class="text-slate-400 text-sm">Seamless integration with Azure and Google Cloud for scalable, secure execution.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 bg-pink-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-lock text-2xl text-pink-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Secure Workflows</h3>
+                    <p class="text-slate-400 text-sm">Enterprise-grade security protocols ensuring your data remains private and protected.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-2xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Real-Time Insights</h3>
+                    <p class="text-slate-400 text-sm">Process streams of data for immediate decision making in dynamic environments.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Founder Section -->
-    <section id="founder" class="section">
-      <h2>Meet the Founder</h2>
-      <div>
-        <img src="Founder.jpg" alt="Founder Sanket Sarjerao Patil" />
-        <p>
-          <strong>Sanket Sarjerao Patil</strong> is a visionary technologist and innovator passionate about democratizing AI and data science. 
-          As the creator of Sifra AI, he aims to empower technical and non-technical users alike with autonomous AI systems that simplify analytics 
-          and decision-making. Sanket’s research on “Autonomous Data Scientists” has been published on TechRxiv.
-        </p>
-      </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="section">
-      <h2>Latest Updates</h2>
-      <div class="card-container">
-        <div class="card">
-          <h3>Sifra AI v1.0 – Beta Coming Soon</h3>
-          <p>
-            Our MVP demonstrates full automation for code generation and execution. 
-            Stay tuned for the public beta launch of Sifra AI v1.0.
-          </p>
+    <section id="founder" class="py-20 bg-slate-900/30 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/3 flex justify-center" data-aos="fade-right">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 border-2 border-dashed border-cyan-500/30">
+                        <div class="absolute inset-0 rounded-full animate-[spin_10s_linear_infinite] border-t-2 border-cyan-500"></div>
+                        <img src="Sanket-HP.jpg" alt="Sanket Patil" class="w-full h-full object-cover rounded-full border-4 border-slate-800">
+                    </div>
+                </div>
+                <div class="w-full md:w-2/3 text-center md:text-left" data-aos="fade-left">
+                    <h2 class="text-3xl font-orbitron font-bold text-white mb-4">Meet the <span class="text-cyan-400">Architect</span></h2>
+                    <h3 class="text-xl text-white font-bold mb-4">Sanket Sarjerao Patil</h3>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        A visionary technologist and the creator of Sifra AI. Sanket's research on "Autonomous Data Scientists" has been recognized globally on TechRxiv. His mission is to democratize access to advanced analytics, empowering both technical and non-technical users to harness the power of AI without the steep learning curve.
+                    </p>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="https://linkedin.com/in/sanket-patil-profile" target="_blank" class="text-slate-400 hover:text-cyan-400 text-2xl transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Sanket-HP" target="_blank" class="text-slate-400 hover:text-white text-2xl transition-colors"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <h3>Multi-Language Support Expansion</h3>
-          <p>
-            Sifra AI is expanding to support more code environments and advanced natural language query handling.
-          </p>
-        </div>
-      </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="section">
-      <h2>Frequently Asked Questions</h2>
-      <div class="card-container">
-        <div class="card">
-          <strong>Q:</strong> Is Sifra AI open source?<br />
-          <strong>A:</strong> Currently in private MVP stage, open API coming soon.
+    <section id="faq" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-orbitron font-bold text-white">Frequently Asked <span class="text-purple-400">Questions</span></h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="glass-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="0">
+                    <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2"><i class="fas fa-question-circle text-cyan-500"></i> Is Sifra AI available?</h4>
+                    <p class="text-slate-400 pl-7">Yes, Sifra AI is currently available and live. You can launch the engine using the "Launch Sifra Engine" button above.</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2"><i class="fas fa-table text-purple-500"></i> Can it connect to Google Sheets?</h4>
+                    <p class="text-slate-400 pl-7">Yes, Sifra integrates directly with Google Sheets and Excel via API and App Scripts for seamless data ingestion.</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2"><i class="fas fa-rocket text-green-500"></i> Is this the full version?</h4>
+                    <p class="text-slate-400 pl-7">This is the MVP version of the Autonomous Data Scientist engine. We are continuously adding more capabilities.</p>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <strong>Q:</strong> Can Sifra AI connect with Google Sheets?<br />
-          <strong>A:</strong> Yes, through API and App Script integration.
-        </div>
-        <div class="card">
-          <strong>Q:</strong> When is the beta launch?<br />
-          <strong>A:</strong> Expected in Q1 2026.
-        </div>
-      </div>
     </section>
 
-    <!-- Signup Section -->
-    <section id="subscribe" class="section">
-      <h2>Get Early Access</h2>
-      <p>Sign up to be among the first to experience the autonomous data scientist revolution.</p>
-      <form class="contact-form" action="https://script.google.com/macros/s/AKfycbwgYYgBWlHDKiGIQ3KZkeHL5k1DOgivuZwK34-rZmluhb2Fw5NApcOOixQ5lKVQodGk4w/exec" method="POST">
-        <input type="email" name="email" placeholder="Your Email Address" required />
-        <button type="submit">Notify Me</button>
-      </form>
+    <!-- Contact & Subscribe -->
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/20 to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- Early Access -->
+                <div class="glass-panel p-8 rounded-2xl border-t-4 border-cyan-500" data-aos="fade-right">
+                    <h3 class="text-2xl font-orbitron font-bold text-white mb-4">Join the <span class="text-cyan-400">Revolution</span></h3>
+                    <p class="text-slate-400 mb-6">Be part of the autonomous data science movement.</p>
+                    <form action="https://script.google.com/macros/s/AKfycbwgYYgBWlHDKiGIQ3KZkeHL5k1DOgivuZwK34-rZmluhb2Fw5NApcOOixQ5lKVQodGk4w/exec" method="POST" class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" name="email" placeholder="Enter your email" required class="flex-1 bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors">
+                        <button type="submit" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg shadow-cyan-900/20">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="glass-panel p-8 rounded-2xl border-t-4 border-purple-500" data-aos="fade-left">
+                    <h3 class="text-2xl font-orbitron font-bold text-white mb-4">Contact <span class="text-purple-400">Support</span></h3>
+                    <form action="https://script.google.com/macros/s/AKfycbwgYYgBWlHDKiGIQ3KZkeHL5k1DOgivuZwK34-rZmluhb2Fw5NApcOOixQ5lKVQodGk4w/exec" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" name="name" placeholder="Name" required class="bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500">
+                            <input type="email" name="email" placeholder="Email" required class="bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500">
+                        </div>
+                        <textarea name="message" rows="3" placeholder="How can we help?" required class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500"></textarea>
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg shadow-purple-900/20">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-      <h2>Contact Us</h2>
-      <form class="contact-form" name="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbwgYYgBWlHDKiGIQ3KZkeHL5k1DOgivuZwK34-rZmluhb2Fw5NApcOOixQ5lKVQodGk4w/exec">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-  </main>
+    <footer class="bg-slate-950 py-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 text-sm">&copy; 2025 Sifra AI. Built by <a href="#" class="text-cyan-500 hover:underline">Sanket Patil</a>.</p>
+        </div>
+    </footer>
 
-  <footer>
-    <p>&copy; 2025 Sifra AI. All rights reserved.</p>
-  </footer>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
