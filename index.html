@@ -6,7 +6,7 @@
     <title>SIFRA AI | Autonomous Data Scientist Engine</title>
     <meta name="description" content="Sifra AI - The World's First Autonomous Data Scientist Engine. Automate data analysis, insights, and visualization.">
     
-    <!-- ADDED: Favicon Link -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="sifra-ai-logo.png">
     
     <!-- Fonts -->
@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- FontAwesome -->
@@ -42,7 +42,6 @@
                     },
                     backgroundImage: {
                         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                        'hero-pattern': "url('https://grainy-gradients.vercel.app/noise.svg')",
                     }
                 }
             }
@@ -55,26 +54,46 @@
             color: #f8fafc;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Glassmorphism */
+        /* PERFORMANCE OPTIMIZATION:
+           Glassmorphism is extremely heavy on mobile GPUs. 
+           We use a solid semi-transparent background on mobile 
+           and only apply backdrop-filter on screens larger than 768px (md).
+        */
         .glass-panel {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(15, 23, 42, 0.95); /* Solid dark for mobile */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (min-width: 768px) {
+            .glass-panel {
+                background: rgba(15, 23, 42, 0.6);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
         }
 
         .glass-card {
             background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            /* Performance: Hint to browser to use GPU */
+            will-change: transform;
+        }
+
+        @media (min-width: 768px) {
+            .glass-card {
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
         }
 
         .glass-card:hover {
             transform: translateY(-5px);
             border-color: #06b6d4;
-            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
         }
 
         /* Gradient Text */
@@ -90,12 +109,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
-
         /* Video Container */
         .video-wrapper {
             position: relative;
@@ -104,82 +117,87 @@
             overflow: hidden;
             border-radius: 1rem;
             border: 1px solid rgba(6, 182, 212, 0.2);
-            box-shadow: 0 0 40px rgba(6, 182, 212, 0.1);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.1); /* Reduced shadow spread for performance */
             background: #000;
         }
         
-        .video-wrapper iframe, .video-wrapper video, .video-wrapper img {
+        .video-wrapper img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
-<body class="bg-hero-pattern">
+<body class="bg-slate-950 selection:bg-cyan-500/30 selection:text-cyan-200">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-panel border-b border-white/5">
+    <nav class="fixed w-full z-50 glass-panel">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <!-- REPLACED: Placeholder div with Logo Image -->
-                    <img src="sifra-ai-logo.png" alt="SIFRA AI Logo" class="w-10 h-10 rounded-lg object-contain shadow-lg shadow-cyan-500/20">
+                    <!-- Logo Image with fallback -->
+                    <div class="relative w-10 h-10 rounded-lg overflow-hidden shadow-lg shadow-cyan-500/20 bg-slate-800 flex items-center justify-center text-cyan-500">
+                        <img src="sifra-ai-logo.png" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-robot\'></i>'" alt="Logo" class="w-full h-full object-contain">
+                    </div>
                     <span class="font-orbitron font-bold text-xl tracking-wider text-white">SIFRA<span class="text-cyan-400">.AI</span></span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#features" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</a>
-                        <a href="#demo" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Demo</a>
-                        <a href="#use-cases" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Use Cases</a>
-                        <a href="#founder" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Founder</a>
-                        <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="bg-cyan-600/20 text-cyan-400 border border-cyan-500/50 hover:bg-cyan-600 hover:text-white px-4 py-2 rounded-full text-sm font-bold transition-all">Launch App</a>
+                        <a href="#features" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Features</a>
+                        <a href="#blog" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Blog</a>
+                        <a href="#demo" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Demo</a>
+                        <a href="#use-cases" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Use Cases</a>
+                        <a href="#founder" class="hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Founder</a>
+                        <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="bg-cyan-600/20 text-cyan-400 border border-cyan-500/50 hover:bg-cyan-600 hover:text-white px-4 py-2 rounded-full text-sm font-bold transition-all duration-200">Launch App</a>
                     </div>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="-mr-2 flex md:hidden">
-                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                    <button type="button" onclick="const m=document.getElementById('mobile-menu'); m.classList.toggle('hidden');" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-slate-800 focus:outline-none">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-slate-900 border-b border-white/10" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#features" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Features</a>
-                <a href="#demo" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Demo</a>
-                <a href="#use-cases" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Use Cases</a>
-                <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="text-cyan-400 block px-3 py-2 rounded-md text-base font-medium">Launch App</a>
+        <div class="hidden md:hidden bg-slate-900 border-b border-white/10 shadow-xl" id="mobile-menu">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="text-gray-300 hover:bg-slate-800 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Features</a>
+                <a href="#blog" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="text-gray-300 hover:bg-slate-800 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Blog</a>
+                <a href="#demo" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="text-gray-300 hover:bg-slate-800 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Demo</a>
+                <a href="#use-cases" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="text-gray-300 hover:bg-slate-800 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Use Cases</a>
+                <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="text-cyan-400 bg-slate-800/50 block px-3 py-3 mt-2 rounded-md text-base font-bold text-center">Launch App</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Ambient Glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[120px] -z-10"></div>
+        <!-- Optimized Ambient Glow: Using pure CSS gradient on background instead of a massive blur div -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/20 via-slate-950 to-slate-950 -z-10 pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 backdrop-blur-sm" data-aos="fade-down">
+            <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/10" data-aos="fade-down">
                 <span class="text-green-400 text-xs font-mono tracking-widest uppercase flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     System Online & Available
                 </span>
             </div>
-            <h1 class="text-4xl md:text-7xl font-orbitron font-black text-white mb-8 leading-tight" data-aos="fade-up">
+            <h1 class="text-4xl md:text-7xl font-orbitron font-black text-white mb-8 leading-tight drop-shadow-lg" data-aos="fade-up">
                 SIFRA AI <br />
                 <span class="text-gradient-accent text-3xl md:text-6xl">Autonomous Data Scientist Engine</span>
             </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400" data-aos="fade-up" data-aos-delay="100">
+            <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-400 px-4" data-aos="fade-up" data-aos-delay="100">
                 Transform raw data into strategic intelligence instantly. The world's first autonomous engine designed to automate the entire data science lifecycle—from cleaning to visualization—with AI precision.
             </p>
-            <div class="mt-10 flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold rounded-lg transition-all shadow-lg shadow-cyan-900/40 flex items-center gap-2">
+            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 px-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold rounded-lg transition-all shadow-lg shadow-cyan-900/40 flex items-center justify-center gap-2 transform active:scale-95">
                     Launch Sifra Engine <i class="fas fa-rocket"></i>
                 </a>
-                <a href="https://www.techrxiv.org/users/889486/articles/1266904-sifra-ai-an-autonomous-data-scientist-for-generating-code-and-outputs-across-python-r-and-sql" target="_blank" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg border border-slate-600 transition-all">
+                <a href="https://www.techrxiv.org/users/889486/articles/1266904-sifra-ai-an-autonomous-data-scientist-for-generating-code-and-outputs-across-python-r-and-sql" target="_blank" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg border border-slate-600 transition-all flex items-center justify-center transform active:scale-95">
                     Read Research
                 </a>
             </div>
@@ -187,21 +205,22 @@
     </section>
 
     <!-- Demo Section -->
-    <section id="demo" class="py-20 bg-slate-950/50 border-y border-white/5">
+    <section id="demo" class="py-20 bg-slate-900/50 border-y border-white/5">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4">Engine in <span class="text-cyan-400">Action</span></h2>
                 <p class="text-slate-400">Watch the Autonomous Data Scientist process natural language into deep analytical insights.</p>
             </div>
             
             <div class="video-wrapper bg-slate-900" data-aos="zoom-in">
-                <!-- Replaced video with high-quality dashboard visualization image -->
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
+                <!-- Lazy loading added to high-res image -->
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" 
+                     loading="lazy"
                      alt="Sifra AI Engine Dashboard Interface" 
-                     class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                     class="absolute inset-0 w-full h-full object-cover md:hover:scale-105 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
                 <div class="absolute bottom-6 left-6 pointer-events-none">
-                    <span class="bg-cyan-900/80 text-cyan-300 px-3 py-1 rounded text-xs font-mono border border-cyan-500/30">
+                    <span class="bg-cyan-900/90 text-cyan-300 px-3 py-1 rounded text-xs font-mono border border-cyan-500/30 shadow-lg">
                         <i class="fas fa-chart-bar mr-2"></i> LIVE ENGINE PREVIEW
                     </span>
                 </div>
@@ -217,59 +236,108 @@
                 <p class="text-slate-400 max-w-2xl mx-auto">Built on a robust Python backend with Flutter integration, Sifra scales from local analysis to cloud enterprise solutions.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <!-- Card 1 -->
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="0">
+                <div class="glass-card p-6 md:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="0">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-robot text-2xl text-cyan-400"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Autonomous Analysis</h3>
-                    <p class="text-slate-400 text-sm">Automated data cleaning, transformation, and insight generation without human intervention.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">Automated data cleaning, transformation, and insight generation without human intervention.</p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card p-6 md:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-brain text-2xl text-purple-400"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Predictive Modeling</h3>
-                    <p class="text-slate-400 text-sm">Deploy advanced statistical models and machine learning algorithms automatically based on your data patterns.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">Deploy advanced statistical models and machine learning algorithms automatically based on your data patterns.</p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-6 md:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-chart-pie text-2xl text-blue-400"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Smart Viz</h3>
-                    <p class="text-slate-400 text-sm">Intelligent selection of charts and graphs to best represent your data patterns.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">Intelligent selection of charts and graphs to best represent your data patterns.</p>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="glass-card p-6 md:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-cloud text-2xl text-green-400"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Cloud Native</h3>
-                    <p class="text-slate-400 text-sm">Seamless integration with Render & Vercel for scalable, secure execution.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">Seamless integration with Render & Vercel for scalable, secure execution.</p>
                 </div>
 
                 <!-- Card 5 -->
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
+                <div class="glass-card p-6 md:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-12 h-12 bg-pink-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-lock text-2xl text-pink-400"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Secure Workflows</h3>
-                    <p class="text-slate-400 text-sm">Enterprise-grade security protocols ensuring your data remains private and protected.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">Enterprise-grade security protocols ensuring your data remains private and protected.</p>
                 </div>
 
                 <!-- Card 6 -->
-                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="500">
+                <div class="glass-card p-6 md:p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="500">
                     <div class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-bolt text-2xl text-yellow-400"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Real-Time Insights</h3>
-                    <p class="text-slate-400 text-sm">Process streams of data for immediate decision making in dynamic environments.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">Process streams of data for immediate decision making in dynamic environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-slate-900/50 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4">Latest <span class="text-cyan-400">Updates</span></h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Stay informed about the latest developments and features from the Sifra AI team.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog Card 1 -->
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-cyan-500" data-aos="fade-up" data-aos-delay="0">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-mono text-cyan-400 bg-cyan-900/30 px-2 py-1 rounded">ANNOUNCEMENT</span>
+                        <span class="text-xs text-slate-500">Today</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Sifra AI Live: Web Free Version</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Sifra AI is live! You can now access the autonomous data scientist engine as a free web version. A new "Recruit Subscription" with limited features is now available for all users.
+                    </p>
+                    <a href="https://sifraai-brain-v1-frontend.vercel.app/" target="_blank" class="text-cyan-400 text-sm font-bold hover:text-white transition-colors flex items-center gap-2">
+                        Try it now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-purple-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-900/30 px-2 py-1 rounded">PLATFORM</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Web Exclusive Availability</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Currently, Sifra AI is available exclusively as a powerful web application. Please note that there is no mobile app version at this time, ensuring focused performance on desktop browsers.
+                    </p>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-green-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xs font-mono text-green-400 bg-green-900/30 px-2 py-1 rounded">ROADMAP</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Future Roadmap Update</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Founder Sanket Sarjerao Patil has officially announced that the next subscription tier, packed with advanced autonomous features and deeper insights, is coming soon. Stay tuned!
+                    </p>
                 </div>
             </div>
         </div>
@@ -280,9 +348,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="w-full md:w-1/3 flex justify-center" data-aos="fade-right">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 border-2 border-dashed border-cyan-500/30">
-                        <div class="absolute inset-0 rounded-full animate-[spin_10s_linear_infinite] border-t-2 border-cyan-500"></div>
-                        <img src="Founder.jpg" alt="Sanket Patil" class="w-full h-full object-cover rounded-full border-4 border-slate-800">
+                    <div class="relative w-56 h-56 md:w-80 md:h-80 rounded-full p-2 border-2 border-dashed border-cyan-500/30">
+                        <!-- Simplified animation for mobile performance -->
+                        <div class="absolute inset-0 rounded-full animate-[spin_12s_linear_infinite] border-t-2 border-cyan-500"></div>
+                        <img src="Founder.jpg" 
+                             onerror="this.src='https://ui-avatars.com/api/?name=Sanket+Patil&background=0f172a&color=fff&size=512'"
+                             alt="Sanket Patil" 
+                             loading="lazy"
+                             class="w-full h-full object-cover rounded-full border-4 border-slate-800 relative z-10">
                     </div>
                 </div>
                 <div class="w-full md:w-2/3 text-center md:text-left" data-aos="fade-left">
@@ -291,11 +364,10 @@
                     <p class="text-slate-300 mb-6 leading-relaxed text-justify">
                         A visionary technologist and the creator of Sifra AI. Sanket's research on "Autonomous Data Scientists" has been recognized globally on TechRxiv. His mission is to democratize access to advanced analytics, empowering both technical and non-technical users to harness the power of AI without the steep learning curve.
                     </p>
-                    <div class="flex gap-4 justify-center md:justify-start">
-                        <!-- Added Personal Portfolio Link -->
-                        <a href="https://sanket-patil-portfolio.web.app" target="_blank" class="text-slate-400 hover:text-cyan-400 text-2xl transition-colors" title="Personal Portfolio"><i class="fas fa-globe"></i></a>
-                        <a href="https://linkedin.com/in/sanket-patil-profile" target="_blank" class="text-slate-400 hover:text-blue-500 text-2xl transition-colors"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Sanket-HP" target="_blank" class="text-slate-400 hover:text-white text-2xl transition-colors"><i class="fab fa-github"></i></a>
+                    <div class="flex gap-6 justify-center md:justify-start">
+                        <a href="https://sanket-patil-portfolio.web.app" target="_blank" class="text-slate-400 hover:text-cyan-400 text-2xl transition-colors p-2" title="Personal Portfolio"><i class="fas fa-globe"></i></a>
+                        <a href="https://linkedin.com/in/sanket-patil-profile" target="_blank" class="text-slate-400 hover:text-blue-500 text-2xl transition-colors p-2"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Sanket-HP" target="_blank" class="text-slate-400 hover:text-white text-2xl transition-colors p-2"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
@@ -328,32 +400,32 @@
 
     <!-- Contact & Subscribe -->
     <section id="contact" class="py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/20 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/10 to-transparent pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 
                 <!-- Early Access -->
-                <div class="glass-panel p-8 rounded-2xl border-t-4 border-cyan-500" data-aos="fade-right">
+                <div class="glass-panel p-6 md:p-8 rounded-2xl border-t-4 border-cyan-500" data-aos="fade-right">
                     <h3 class="text-2xl font-orbitron font-bold text-white mb-4">Join the <span class="text-cyan-400">Revolution</span></h3>
                     <p class="text-slate-400 mb-6">Be part of the autonomous data science movement.</p>
                     <form action="https://script.google.com/macros/s/AKfycbwgYYgBWlHDKiGIQ3KZkeHL5k1DOgivuZwK34-rZmluhb2Fw5NApcOOixQ5lKVQodGk4w/exec" method="POST" class="flex flex-col sm:flex-row gap-3">
-                        <input type="email" name="email" placeholder="Enter your email" required class="flex-1 bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors">
-                        <button type="submit" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg shadow-cyan-900/20">
+                        <input type="email" name="email" placeholder="Enter your email" required class="flex-1 bg-slate-950/50 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all">
+                        <button type="submit" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg shadow-cyan-900/20 active:transform active:scale-95">
                             Subscribe
                         </button>
                     </form>
                 </div>
 
                 <!-- Contact Form -->
-                <div class="glass-panel p-8 rounded-2xl border-t-4 border-purple-500" data-aos="fade-left">
+                <div class="glass-panel p-6 md:p-8 rounded-2xl border-t-4 border-purple-500" data-aos="fade-left">
                     <h3 class="text-2xl font-orbitron font-bold text-white mb-4">Contact <span class="text-purple-400">Support</span></h3>
                     <form action="https://script.google.com/macros/s/AKfycbwgYYgBWlHDKiGIQ3KZkeHL5k1DOgivuZwK34-rZmluhb2Fw5NApcOOixQ5lKVQodGk4w/exec" method="POST" class="space-y-4">
                         <div class="grid grid-cols-2 gap-4">
-                            <input type="text" name="name" placeholder="Name" required class="bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500">
-                            <input type="email" name="email" placeholder="Email" required class="bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500">
+                            <input type="text" name="name" placeholder="Name" required class="bg-slate-950/50 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500">
+                            <input type="email" name="email" placeholder="Email" required class="bg-slate-950/50 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500">
                         </div>
-                        <textarea name="message" rows="3" placeholder="How can we help?" required class="w-full bg-slate-900 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500"></textarea>
-                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg shadow-purple-900/20">
+                        <textarea name="message" rows="3" placeholder="How can we help?" required class="w-full bg-slate-950/50 border border-slate-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"></textarea>
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold px-6 py-3 rounded-lg transition-all shadow-lg shadow-purple-900/20 active:transform active:scale-95">
                             Send Message
                         </button>
                     </form>
@@ -365,14 +437,18 @@
 
     <footer class="bg-slate-950 py-8 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-slate-500 text-sm">&copy; 2025 Sifra AI. Built by <a href="#" class="text-cyan-500 hover:underline">Sanket Patil</a>.</p>
+            <p class="text-slate-500 text-sm">&copy; 2025 Sifra AI. Built by <a href="https://sanket-patil-portfolio.web.app" target="_blank" class="text-cyan-500 hover:underline">Sanket Patil</a>.</p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // CRITICAL PERFORMANCE FIX:
+        // Disable AOS animations on mobile devices (< 768px). 
+        // Scroll animations on mobile often cause "hanging" or jittery scrolling.
         AOS.init({
+            disable: 'mobile', 
             duration: 800,
             once: true,
             offset: 100
